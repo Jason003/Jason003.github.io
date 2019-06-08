@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+
+
+
+
+<html class="theme-next mist" lang>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="JavaScript 慕课网 this ife,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="content{:toc}  本文为慕课网 JavaScript深入浅出 JavaScript 中的 this笔记。 全局的 this全局 this 一般指向全局对象，浏览器中的全局对象就是 window。 例如： 12345console.log(this.document === document); //trueconsole.log(this === window); //truethi">
+<meta name="keywords" content="JavaScript 慕课网 this ife">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript 中的 this">
+<meta property="og:url" content="http://yoursite.com/2015/06/12/JavaScript-this/index.html">
+<meta property="og:site_name" content="JL">
+<meta property="og:description" content="content{:toc}  本文为慕课网 JavaScript深入浅出 JavaScript 中的 this笔记。 全局的 this全局 this 一般指向全局对象，浏览器中的全局对象就是 window。 例如： 12345console.log(this.document === document); //trueconsole.log(this === window); //truethi">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2017-12-13T15:25:35.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript 中的 this">
+<meta name="twitter:description" content="content{:toc}  本文为慕课网 JavaScript深入浅出 JavaScript 中的 this笔记。 全局的 this全局 this 一般指向全局对象，浏览器中的全局对象就是 window。 例如： 12345console.log(this.document === document); //trueconsole.log(this === window); //truethi">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2015/06/12/JavaScript-this/">
+
+
+
+
+
+  <title>JavaScript 中的 this | JL</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">JL</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Jason Lee's Blog</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/06/12/JavaScript-this/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jason Lee">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/upload/195206.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JL">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">JavaScript 中的 this</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-06-12T14:06:05+08:00">
+                2015-06-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2015/06/12/JavaScript-this/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/06/12/JavaScript-this/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <ul>
+<li>content<br>{:toc}</li>
+</ul>
+<p>本文为慕课网 <a href="http://www.imooc.com/learn/277" target="_blank" rel="noopener">JavaScript深入浅出</a> JavaScript 中的 this笔记。</p>
+<h2 id="全局的-this"><a href="#全局的-this" class="headerlink" title="全局的 this"></a>全局的 this</h2><p>全局 this 一般指向全局对象，浏览器中的全局对象就是 <code>window</code>。</p>
+<p>例如：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="keyword">this</span>.document === <span class="built_in">document</span>); <span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">this</span> === <span class="built_in">window</span>); <span class="comment">//true</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">this</span>.a = <span class="number">91</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>.a); <span class="comment">//91</span></span><br></pre></td></tr></table></figure>
+<h2 id="一般函数的-this"><a href="#一般函数的-this" class="headerlink" title="一般函数的 this"></a>一般函数的 this</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(f1() === <span class="built_in">window</span>);<span class="comment">//true, global object</span></span><br></pre></td></tr></table></figure>
+<p>可以看到一般函数的 this 也指向 window，在 nodeJS 中为 global object</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f2</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line"><span class="meta">    "use strict"</span>;<span class="comment">//使用严格模式</span></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(f1() === <span class="literal">undefined</span>);<span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+<p>严格模式中，函数的 this 为 undefined</p>
+<h2 id="作为对象方法的函数的-this"><a href="#作为对象方法的函数的-this" class="headerlink" title="作为对象方法的函数的 this"></a>作为对象方法的函数的 this</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> o = &#123;</span><br><span class="line">    prop: <span class="number">37</span>,</span><br><span class="line">    f: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.prop;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">console</span>.log(o.f()); <span class="comment">// 37</span></span><br></pre></td></tr></table></figure>
+<p>上述代码通过字面量创建对象 o。</p>
+<p>f 为对象 o 的方法。这个方法的 this 指向这个对象，在这里即对象 o。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> o = &#123;</span><br><span class="line">    prop: <span class="number">37</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">independent</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.prop;</span><br><span class="line">&#125;</span><br><span class="line">o.f = independent;</span><br><span class="line"><span class="built_in">console</span>.log(o.f()); <span class="comment">// 37</span></span><br></pre></td></tr></table></figure>
+<p>上面的代码，创建了对象 o，但是没有给对象 o，添加方法。而是通过 <code>o.f = independent</code> 临时添加了方法属性。这样这个方法中的 this 同样也指向这个对象 o。</p>
+<h2 id="对象原型链上的-this"><a href="#对象原型链上的-this" class="headerlink" title="对象原型链上的 this"></a>对象原型链上的 this</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> o = &#123;</span><br><span class="line">    f: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.a + <span class="keyword">this</span>.b;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> p = <span class="built_in">Object</span>.create(o);</span><br><span class="line">p.a = <span class="number">1</span>;</span><br><span class="line">p.b = <span class="number">2</span>;</span><br><span class="line"><span class="built_in">console</span>.log(p.f()); <span class="comment">//3</span></span><br></pre></td></tr></table></figure>
+<p>通过 <code>var p = Object.create(o)</code> 创建的对象，p 是基于原型 o 创建出的对象。</p>
+<p>p 的原型是 o，调用 f() 的时候是调用了 o 上的方法 f()，这里面的 this 是可以指向当前对象的，即对象 p。</p>
+<h2 id="get-set-方法与-this"><a href="#get-set-方法与-this" class="headerlink" title="get/set 方法与 this"></a>get/set 方法与 this</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">modulus</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Math</span>.sqrt(<span class="keyword">this</span>.re * <span class="keyword">this</span>.re + <span class="keyword">this</span>.im * <span class="keyword">this</span>.im);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> o = &#123;</span><br><span class="line">    re: <span class="number">1</span>,</span><br><span class="line">    im: <span class="number">-1</span>,</span><br><span class="line">    <span class="keyword">get</span> phase() &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">Math</span>.atan2(<span class="keyword">this</span>.im, <span class="keyword">this</span>.re);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">Object</span>.defineProperty(o, <span class="string">'modulus'</span>, &#123;</span><br><span class="line">    <span class="keyword">get</span>: modulus,</span><br><span class="line">    enumerable: true,</span><br><span class="line">    configurable: true</span><br><span class="line">&#125;);</span><br><span class="line">console.log(o.phase, o.modulus); // -0.78 1.4142</span><br></pre></td></tr></table></figure>
+<p>get/set 方法中的 this 也会指向 get/set 方法所在的对象的。</p>
+<h2 id="构造器中的-this"><a href="#构造器中的-this" class="headerlink" title="构造器中的 this"></a>构造器中的 this</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">MyClass</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.a = <span class="number">25</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> o = <span class="keyword">new</span> MyClass();</span><br><span class="line"><span class="built_in">console</span>.log(o.a); <span class="comment">//25</span></span><br></pre></td></tr></table></figure>
+<p>new MyClass() 的时候，MyClass()中的 this 会指向一个空对象，这个对象的原型会指向 MyClass.prototype。MyClass()没有返回值或者返回为基本类型时，默认将 this 返回。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">C2</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.a = <span class="number">26</span>;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        a: <span class="number">24</span></span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">o = <span class="keyword">new</span> C2();</span><br><span class="line"><span class="built_in">console</span>.log(o.a); <span class="comment">//24</span></span><br></pre></td></tr></table></figure>
+<p>因为返回了对象，将这个对象作为返回值</p>
+<h2 id="call-apply-方法与-this"><a href="#call-apply-方法与-this" class="headerlink" title="call/apply 方法与 this"></a>call/apply 方法与 this</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">c, d</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.a + <span class="keyword">this</span>.b + c + d;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> o = &#123;</span><br><span class="line">    a: <span class="number">1</span>,</span><br><span class="line">    b: <span class="number">3</span></span><br><span class="line">&#125;;</span><br><span class="line">add.call(o, <span class="number">5</span>, <span class="number">7</span>); <span class="comment">// 1 + 3 + 5 + 7 = 16</span></span><br><span class="line">add.apply(o, [<span class="number">10</span>, <span class="number">20</span>]); <span class="comment">// 1 + 3 + 10 + 20 = 34</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bar</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype.toString.call(<span class="keyword">this</span>));</span><br><span class="line">&#125;</span><br><span class="line">bar.call(<span class="number">7</span>); <span class="comment">// "[object Number]"</span></span><br></pre></td></tr></table></figure>
+<h2 id="bind-方法与-this"><a href="#bind-方法与-this" class="headerlink" title="bind 方法与 this"></a>bind 方法与 this</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.a;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> g = f.bind(&#123;</span><br><span class="line">    a: <span class="string">"test"</span></span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(g()); <span class="comment">// test</span></span><br><span class="line"><span class="keyword">var</span> o = &#123;</span><br><span class="line">    a: <span class="number">37</span>,</span><br><span class="line">    f: f,</span><br><span class="line">    g: g</span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">console</span>.log(o.f(), o.g()); <span class="comment">// 37, test</span></span><br></pre></td></tr></table></figure>
+<p>绑定之后再调用时，仍然会按绑定时的内容走，所以 o.g() 结果是 test</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>Donate comment here</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/upload/wechatpay.png" alt="Jason Lee WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/upload/alipay.jpg" alt="Jason Lee Alipay">
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript-慕课网-this-ife/" rel="tag"># JavaScript 慕课网 this ife</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/06/11/JavaScript-function/" rel="next" title="JavaScript 函数">
+                <i class="fa fa-chevron-left"></i> JavaScript 函数
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/06/14/JavaScript-closure/" rel="prev" title="JavaScript 中的闭包">
+                JavaScript 中的闭包 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/upload/195206.jpg" alt="Jason Lee">
+            
+              <p class="site-author-name" itemprop="name">Jason Lee</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">55</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">39</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/Jason003" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:jl5501@columbia.edu" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.zhihu.com/people/long-juan-feng-98-88" target="_blank" title="知乎">
+                      
+                        <i class="fa fa-fw fa-globe"></i>知乎</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#全局的-this"><span class="nav-number">1.</span> <span class="nav-text">全局的 this</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一般函数的-this"><span class="nav-number">2.</span> <span class="nav-text">一般函数的 this</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#作为对象方法的函数的-this"><span class="nav-number">3.</span> <span class="nav-text">作为对象方法的函数的 this</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对象原型链上的-this"><span class="nav-number">4.</span> <span class="nav-text">对象原型链上的 this</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#get-set-方法与-this"><span class="nav-number">5.</span> <span class="nav-text">get/set 方法与 this</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#构造器中的-this"><span class="nav-number">6.</span> <span class="nav-text">构造器中的 this</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#call-apply-方法与-this"><span class="nav-number">7.</span> <span class="nav-text">call/apply 方法与 this</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#bind-方法与-this"><span class="nav-number">8.</span> <span class="nav-text">bind 方法与 this</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jason Lee</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://Jason.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://yoursite.com/2015/06/12/JavaScript-this/';
+          this.page.identifier = '2015/06/12/JavaScript-this/';
+          this.page.title = 'JavaScript 中的 this';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://Jason.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

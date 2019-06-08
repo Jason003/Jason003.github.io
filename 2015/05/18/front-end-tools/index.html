@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+
+
+
+
+<html class="theme-next mist" lang>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="tools CSS reveal 配色,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="content{:toc}  这里记录一些我用到的或者见到的比较好用方便的前端开发相关的工具吧。  色彩与图标CSS滤镜 Filter Effects   界面：      有各种各样的滤镜效果，可以直接调节参数观察变化。   值得一提的是，这个网站还有很多其他 css 生成器。   比如：Border Image, Border Radius, Box Shadow, Filter Effec">
+<meta name="keywords" content="tools CSS reveal 配色">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端的一些资料和工具">
+<meta property="og:url" content="http://yoursite.com/2015/05/18/front-end-tools/index.html">
+<meta property="og:site_name" content="JL">
+<meta property="og:description" content="content{:toc}  这里记录一些我用到的或者见到的比较好用方便的前端开发相关的工具吧。  色彩与图标CSS滤镜 Filter Effects   界面：      有各种各样的滤镜效果，可以直接调节参数观察变化。   值得一提的是，这个网站还有很多其他 css 生成器。   比如：Border Image, Border Radius, Box Shadow, Filter Effec">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://7q5cdt.com1.z0.glb.clouddn.com/blog-filter.png">
+<meta property="og:image" content="http://7q5cdt.com1.z0.glb.clouddn.com/blog-color-gradient.png">
+<meta property="og:image" content="http://7q5cdt.com1.z0.glb.clouddn.com/blog-RBGScreenColor.png">
+<meta property="og:image" content="http://7q5cdt.com1.z0.glb.clouddn.com/blog-hexSreenColor.png">
+<meta property="og:image" content="http://7q5cdt.com1.z0.glb.clouddn.com/blog-chooseColor.png">
+<meta property="og:image" content="http://7q5cdt.com1.z0.glb.clouddn.com/blog-adobeColorCC.png">
+<meta property="og:image" content="http://7q5cdt.com1.z0.glb.clouddn.com/blog-paletton.png">
+<meta property="og:image" content="http://7q5cdt.com1.z0.glb.clouddn.com/blog-icon.png">
+<meta property="og:image" content="http://7q5cdt.com1.z0.glb.clouddn.com/blog-font awesome.png">
+<meta property="og:image" content="http://7q5cdt.com1.z0.glb.clouddn.com/iconfont.png">
+<meta property="og:image" content="http://7q5cdt.com1.z0.glb.clouddn.com/blog-json.png">
+<meta property="og:image" content="http://7q5cdt.com1.z0.glb.clouddn.com/blog-revealjs.png">
+<meta property="og:updated_time" content="2017-12-13T15:25:35.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="前端的一些资料和工具">
+<meta name="twitter:description" content="content{:toc}  这里记录一些我用到的或者见到的比较好用方便的前端开发相关的工具吧。  色彩与图标CSS滤镜 Filter Effects   界面：      有各种各样的滤镜效果，可以直接调节参数观察变化。   值得一提的是，这个网站还有很多其他 css 生成器。   比如：Border Image, Border Radius, Box Shadow, Filter Effec">
+<meta name="twitter:image" content="http://7q5cdt.com1.z0.glb.clouddn.com/blog-filter.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2015/05/18/front-end-tools/">
+
+
+
+
+
+  <title>前端的一些资料和工具 | JL</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">JL</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Jason Lee's Blog</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/05/18/front-end-tools/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jason Lee">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/upload/195206.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JL">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">前端的一些资料和工具</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-05-18T14:06:05+08:00">
+                2015-05-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Tools/" itemprop="url" rel="index">
+                    <span itemprop="name">Tools</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2015/05/18/front-end-tools/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/05/18/front-end-tools/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <ul>
+<li>content<br>{:toc}</li>
+</ul>
+<p>这里记录一些我用到的或者见到的比较好用方便的前端开发相关的工具吧。</p>
+<hr>
+<h2 id="色彩与图标"><a href="#色彩与图标" class="headerlink" title="色彩与图标"></a>色彩与图标</h2><h3 id="CSS滤镜"><a href="#CSS滤镜" class="headerlink" title="CSS滤镜"></a>CSS滤镜</h3><ul>
+<li><p><a href="http://www.cssreflex.com/css-generators/filter" target="_blank" rel="noopener">Filter Effects</a></p>
+<p>  界面：</p>
+<p>  <img src="http://7q5cdt.com1.z0.glb.clouddn.com/blog-filter.png" alt="Filter Effects"></p>
+<p>  有各种各样的滤镜效果，可以直接调节参数观察变化。</p>
+<p>  值得一提的是，这个网站还有很多其他 css 生成器。</p>
+<p>  比如：Border Image, Border Radius, Box Shadow, Filter Effects, Multi-Column, Outline Border, Overflow(x,y), RGBa, Text Rotate, Text Shadow, Textarea Resize, Transform</p>
+</li>
+<li><p>可以访问这里去使用这些 css 生成器：<a href="http://www.cssreflex.com/css-generators/" target="_blank" rel="noopener">CSS Generators</a></p>
+</li>
+</ul>
+<hr>
+<h3 id="渐变CSS代码生成器"><a href="#渐变CSS代码生成器" class="headerlink" title="渐变CSS代码生成器"></a>渐变CSS代码生成器</h3><ul>
+<li><p><a href="http://www.colorzilla.com/gradient-editor/" target="_blank" rel="noopener">Ultimate CSS Gradient Generator</a></p>
+<p>  界面如下图：</p>
+<p>  <img src="http://7q5cdt.com1.z0.glb.clouddn.com/blog-color-gradient.png" alt="Ultimate CSS Gradient Generator"></p>
+<p>  目前 css 写渐变还很复杂，但是用了这个工具简直太方便了，直接生成 css 代码，还能兼容 ie。</p>
+</li>
+</ul>
+<hr>
+<h3 id="QQ截图取色-16进制"><a href="#QQ截图取色-16进制" class="headerlink" title="QQ截图取色-16进制"></a>QQ截图取色-16进制</h3><p>在按下 <code>Ctrl+Shift+A</code> 后，再按一下 <code>Ctrl</code> 就可以看到截图框下面的颜色代码变成16进制的代码了。</p>
+<p>如下图：</p>
+<p>普通截图：</p>
+<p><img src="http://7q5cdt.com1.z0.glb.clouddn.com/blog-RBGScreenColor.png" alt="normal"></p>
+<p>按住 <code>Ctrl</code>：</p>
+<p><img src="http://7q5cdt.com1.z0.glb.clouddn.com/blog-hexSreenColor.png" alt="press ctrl"></p>
+<p>可以看到第一幅图中的 51, 51, 51 变成了 #333333。</p>
+<hr>
+<h3 id="配色"><a href="#配色" class="headerlink" title="配色"></a>配色</h3><ul>
+<li><p><a href="http://nipponcolors.com/" target="_blank" rel="noopener">nipponcolors</a></p>
+<p>  日本的一个配色网站。罗列了很多不饱和经典的颜色，当然，自己选配还是很重要的。</p>
+<p>  <img src="http://7q5cdt.com1.z0.glb.clouddn.com/blog-chooseColor.png" alt="nipponcolors"></p>
+</li>
+<li><p><a href="https://color.adobe.com/zh/explore/most-popular/?time=all" target="_blank" rel="noopener">Adobe Color CC</a></p>
+<p>  Adobe 出的在线配色工具，里面有些现成的配色方案还是很不错的。</p>
+<p>  <img src="http://7q5cdt.com1.z0.glb.clouddn.com/blog-adobeColorCC.png" alt="Adobe Color CC"></p>
+</li>
+<li><p><a href="http://paletton.com/" target="_blank" rel="noopener">paletton</a></p>
+<p>  提供了各种预览模式，可以在模板网站中预览，在色块中预览。</p>
+<p>  <img src="http://7q5cdt.com1.z0.glb.clouddn.com/blog-paletton.png" alt="paletton"></p>
+</li>
+</ul>
+<hr>
+<h3 id="图标"><a href="#图标" class="headerlink" title="图标"></a>图标</h3><ul>
+<li><p><a href="http://www.easyicon.net/" target="_blank" rel="noopener">easyicon</a></p>
+<p>  对中文的搜索支持很好。实际上它是先把中文翻译为英文再搜索的。</p>
+<p>  <img src="http://7q5cdt.com1.z0.glb.clouddn.com/blog-icon.png" alt="easyicon"></p>
+</li>
+<li><p><a href="http://fortawesome.github.io/Font-Awesome/icons/" target="_blank" rel="noopener">Font-Awesome</a></p>
+<p>  比上面介绍的那个好用的多，字体图标，不需要考虑像素大小，全部是矢量图。并且图标精美。如果不使用 BootStrap，单独添加图标的话，这一套图标在合适不过了。</p>
+<p>  <img src="http://7q5cdt.com1.z0.glb.clouddn.com/blog-font awesome.png" alt="Font-Awesome"></p>
+</li>
+<li><p><a href="http://www.iconfont.cn/" target="_blank" rel="noopener">iconfont.cn</a></p>
+<p>  阿里巴巴制作的图标库。</p>
+<p>  <img src="http://7q5cdt.com1.z0.glb.clouddn.com/iconfont.png" alt="iconfont"></p>
+</li>
+</ul>
+<hr>
+<h2 id="数据处理"><a href="#数据处理" class="headerlink" title="数据处理"></a>数据处理</h2><h3 id="Json"><a href="#Json" class="headerlink" title="Json"></a>Json</h3><ul>
+<li><p><a href="http://braincast.nl/samples/jsoneditor/" target="_blank" rel="noopener">json editor</a></p>
+<p>  将json数据输入进去，会生成一个树形的结构，方便查看每个节点。</p>
+<p>  <img src="http://7q5cdt.com1.z0.glb.clouddn.com/blog-json.png" alt="jsoneditor"></p>
+</li>
+</ul>
+<hr>
+<h2 id="展示"><a href="#展示" class="headerlink" title="展示"></a>展示</h2><h3 id="reveal-js"><a href="#reveal-js" class="headerlink" title="reveal.js"></a>reveal.js</h3><ul>
+<li><p><a href="https://github.com/hakimel/reveal.js" target="_blank" rel="noopener">reveal.js</a></p>
+<p>  在网页上展示 slides 幻灯片，太酷了。针对不会代码的人还有一个在线编辑器：<a href="http://slides.com" target="_blank" rel="noopener">http://slides.com</a></p>
+<p>  还有一个新手入门教程：<a href="http://htmlcheats.com/reveal-js/reveal-js-tutorial-reveal-js-for-beginners/" target="_blank" rel="noopener">Reveal.js Tutorial-Reveal.js for Beginners</a></p>
+<p>  <img src="http://7q5cdt.com1.z0.glb.clouddn.com/blog-revealjs.png" alt="reveal"></p>
+</li>
+</ul>
+<p>本文不定期更新。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>Donate comment here</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/upload/wechatpay.png" alt="Jason Lee WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/upload/alipay.jpg" alt="Jason Lee Alipay">
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/tools-CSS-reveal-配色/" rel="tag"># tools CSS reveal 配色</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/04/22/baidu-ife-2-javascript/" rel="next" title="百度Web前端技术学院(2)-JavaScript 基础">
+                <i class="fa fa-chevron-left"></i> 百度Web前端技术学院(2)-JavaScript 基础
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/05/20/scope/" rel="prev" title="JavaScript 作用域和作用域链">
+                JavaScript 作用域和作用域链 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/upload/195206.jpg" alt="Jason Lee">
+            
+              <p class="site-author-name" itemprop="name">Jason Lee</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">55</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">39</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/Jason003" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:jl5501@columbia.edu" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.zhihu.com/people/long-juan-feng-98-88" target="_blank" title="知乎">
+                      
+                        <i class="fa fa-fw fa-globe"></i>知乎</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#色彩与图标"><span class="nav-number">1.</span> <span class="nav-text">色彩与图标</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CSS滤镜"><span class="nav-number">1.1.</span> <span class="nav-text">CSS滤镜</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#渐变CSS代码生成器"><span class="nav-number">1.2.</span> <span class="nav-text">渐变CSS代码生成器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#QQ截图取色-16进制"><span class="nav-number">1.3.</span> <span class="nav-text">QQ截图取色-16进制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配色"><span class="nav-number">1.4.</span> <span class="nav-text">配色</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#图标"><span class="nav-number">1.5.</span> <span class="nav-text">图标</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据处理"><span class="nav-number">2.</span> <span class="nav-text">数据处理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Json"><span class="nav-number">2.1.</span> <span class="nav-text">Json</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#展示"><span class="nav-number">3.</span> <span class="nav-text">展示</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#reveal-js"><span class="nav-number">3.1.</span> <span class="nav-text">reveal.js</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jason Lee</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://Jason.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://yoursite.com/2015/05/18/front-end-tools/';
+          this.page.identifier = '2015/05/18/front-end-tools/';
+          this.page.title = '前端的一些资料和工具';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://Jason.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+
+
+
+
+<html class="theme-next mist" lang>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="jekyll 端口 markdown Foxit RubyGems HTML CSS,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="content{:toc}  本文主要说明对这个博客主题的改版和代码重构的过程。这个简洁高雅的博客主题受到了很多朋友的喜欢。在写第一版界面时，我对前端并不是很熟悉，对Jekyll也不熟悉。现在距离当时也一年了，对自己当时写的代码也不太满意了，同时Jekyll如今也已经升级了，目前最新版为3.1.2。因此我在临近毕业尚未入职前做一下博客主题的代码重构和改版吧。 主要想做这些事情有：添加归档，添加标">
+<meta name="keywords" content="jekyll 端口 markdown Foxit RubyGems HTML CSS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="对这个 jekyll 博客主题的改版和重构">
+<meta property="og:url" content="http://yoursite.com/2016/03/12/jekyll-theme-version-2.0/index.html">
+<meta property="og:site_name" content="JL">
+<meta property="og:description" content="content{:toc}  本文主要说明对这个博客主题的改版和代码重构的过程。这个简洁高雅的博客主题受到了很多朋友的喜欢。在写第一版界面时，我对前端并不是很熟悉，对Jekyll也不熟悉。现在距离当时也一年了，对自己当时写的代码也不太满意了，同时Jekyll如今也已经升级了，目前最新版为3.1.2。因此我在临近毕业尚未入职前做一下博客主题的代码重构和改版吧。 主要想做这些事情有：添加归档，添加标">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/7011d6cfjw1f1ty28wwj4j20g00aiju7.jpg">
+<meta property="og:updated_time" content="2017-12-13T15:25:35.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="对这个 jekyll 博客主题的改版和重构">
+<meta name="twitter:description" content="content{:toc}  本文主要说明对这个博客主题的改版和代码重构的过程。这个简洁高雅的博客主题受到了很多朋友的喜欢。在写第一版界面时，我对前端并不是很熟悉，对Jekyll也不熟悉。现在距离当时也一年了，对自己当时写的代码也不太满意了，同时Jekyll如今也已经升级了，目前最新版为3.1.2。因此我在临近毕业尚未入职前做一下博客主题的代码重构和改版吧。 主要想做这些事情有：添加归档，添加标">
+<meta name="twitter:image" content="http://ww4.sinaimg.cn/large/7011d6cfjw1f1ty28wwj4j20g00aiju7.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/03/12/jekyll-theme-version-2.0/">
+
+
+
+
+
+  <title>对这个 jekyll 博客主题的改版和重构 | JL</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">JL</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Jason Lee's Blog</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/03/12/jekyll-theme-version-2.0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jason Lee">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/upload/195206.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JL">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">对这个 jekyll 博客主题的改版和重构</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-03-12T11:40:18+08:00">
+                2016-03-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/jekyll/" itemprop="url" rel="index">
+                    <span itemprop="name">jekyll</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/03/12/jekyll-theme-version-2.0/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/03/12/jekyll-theme-version-2.0/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <ul>
+<li>content<br>{:toc}</li>
+</ul>
+<p>本文主要说明对这个博客主题的改版和代码重构的过程。这个简洁高雅的博客主题受到了很多朋友的喜欢。在写第一版界面时，我对前端并不是很熟悉，对<code>Jekyll</code>也不熟悉。现在距离当时也一年了，对自己当时写的代码也不太满意了，同时<code>Jekyll</code>如今也已经升级了，目前最新版为3.1.2。因此我在临近毕业尚未入职前做一下博客主题的代码重构和改版吧。</p>
+<p>主要想做这些事情有：添加归档，添加标签，添加分类页面，主页显示文章摘要，代码去除 jQuery 和 BootStrap，优化移动端显示，将所有变量写入配置文件<code>_config.yml</code>中等。再优化一些细节吧。希望更多人会喜欢。</p>
+<h2 id="改版重构说明"><a href="#改版重构说明" class="headerlink" title="改版重构说明"></a>改版重构说明</h2><ul>
+<li><p><strong>使用 GitHub 风格的代码块 Markdown 写法 (Fenced code blocks)。</strong></p>
+<p>  即 GFM(github flavored markdown) 的方式。</p>
+<p>  Jekyll 已经升级至 3.1.2（2016-03），其中有一些新的要注意的地方，比如官网上说使用了 <code>Rouge</code> 去做代码高亮而不是默认的 <code>Pygments</code>，因为 <code>Jekyll</code> 本身是基于 Ruby 的，因此我看到官方说希望不再使用基于 Python 的 <code>Pygments</code> 了，而是都使用基于 Ruby 的代码。详情见官网升级说明 <a href="https://jekyllrb.com/docs/upgrading/2-to-3/#syntax-highlighter-changed" target="_blank" rel="noopener">syntax-highlighter-changed</a>。</p>
+</li>
+<li><p><strong>首页中添加摘要</strong></p>
+<p>  摘要可以在每一篇 md 文件头中使用 excerpt 属性写出来。也可以在正文中，4个换行符来分割，这个设置见配置文件<code>_config.yml</code>。</p>
+</li>
+<li><p><strong>添加归档</strong></p>
+<p>  上一版中没有归档，现在专门做了一个归档页面，当文章很多时方便根据年份快速查阅。</p>
+</li>
+<li><p><strong>添加标签</strong></p>
+<p>  标签还是很有必要添加的，上一版中也没有这个功能。现在也可以根据标签查找文章了。同时标签还有一个重要的作用是，用来获取相似文章的。</p>
+</li>
+<li><p><strong>添加分类页</strong></p>
+<p>  之前的分类就是在首页中直接完成的，现在和标签和归档类似，我将分类单独制作为一页，方便查阅。</p>
+</li>
+<li><p><strong>去掉 jQuery 和 BootStrap</strong></p>
+<p>  我觉得太重了，没必要使用这两个库，使用原生 JavaScript 和 CSS就可以做到一样的效果，代码量大大减轻，载入速度略有提高。</p>
+</li>
+<li><p><strong>重写了demo页的瀑布流布局</strong></p>
+<p>  改变数据写死的方式，将数据用 json 格式录入，由 JavaScript 拼接为 HTML 代码。同时，使用 <a href="http://masonry.desandro.com/" target="_blank" rel="noopener">Masonry</a>，重写了瀑布流布局。</p>
+</li>
+<li><p><strong>简化评论配置，支持 多说 和 disqus</strong></p>
+<p>  在<code>_config.yml</code>中评论配置直接添加自己的<code>short_name</code>，评论就能正常使用了。</p>
+</li>
+</ul>
+<p>下面列举一些可能遇到的问题，至少我是遇到了：</p>
+<h2 id="RubyGems-无法访问，SSL-证书问题"><a href="#RubyGems-无法访问，SSL-证书问题" class="headerlink" title="RubyGems 无法访问，SSL 证书问题"></a>RubyGems 无法访问，SSL 证书问题</h2><p>以前我使用的是 RubyGems 的淘宝镜像<a href="https://ruby.taobao.org/" target="_blank" rel="noopener">https://ruby.taobao.org/</a>。现在这个镜像已经不再维护了，作者 <a href="https://ruby-china.org/huacnlee" target="_blank" rel="noopener">huacnlee (李华顺)</a> 转到 <a href="https://ruby-china.org/" target="_blank" rel="noopener">Ruby China</a> 中继续维护了，详情见 <a href="https://gems.ruby-china.org/" target="_blank" rel="noopener">RubyGems 镜像- Ruby China</a>。</p>
+<h3 id="错误呈现"><a href="#错误呈现" class="headerlink" title="错误呈现"></a>错误呈现</h3><p>在执行任何<code>gem</code>命令的时候出现以下错误：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ERROR:  While executing gem ... (Gem::RemoteFetcher::FetchError)</span><br><span class="line">    SSL_connect returned=1 errno=0 state=SSLv3 read server certificate B: certificate verify failed (https://gems.ruby-china.org/specs.4.8.gz)</span><br></pre></td></tr></table></figure>
+<h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h3><p>根据 <a href="https://gems.ruby-china.org/" target="_blank" rel="noopener">https://gems.ruby-china.org/</a> 页面最下方提供的 GitHub Issue 地址。</p>
+<p>可以进入这个 issue：<a href="https://github.com/ruby-china/rubygems-mirror/issues/3" target="_blank" rel="noopener">https://github.com/ruby-china/rubygems-mirror/issues/3</a></p>
+<p>其中 sanlengjingvv 给出了一个链接地址 <a href="https://gist.github.com/fnichol/867550" target="_blank" rel="noopener">https://gist.github.com/fnichol/867550</a> 里面提供了方法。我就是采用这里面的方法解决的。</p>
+<p>我使用的是 <a href="https://gist.github.com/fnichol/867550#the-manual-way-boring" target="_blank" rel="noopener">The Manual Way</a>，因为 <a href="https://gist.github.com/fnichol/867550#the-ruby-way-fun" target="_blank" rel="noopener">The Ruby Way</a> 我没有成功，不知道什么原因，有兴趣的朋友可以试试。下面说说我的具体操作吧。</p>
+<p>首先从 <a href="https://curl.haxx.se/ca/cacert.pem" target="_blank" rel="noopener">https://curl.haxx.se/ca/cacert.pem</a> 将文件<code>cacert.pem</code>下载至 <code>C:\RailsInstaller\cacert.pem</code></p>
+<p>然后执行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set SSL_CERT_FILE=C:\RailsInstaller\cacert.pem</span><br></pre></td></tr></table></figure>
+<p>就成功了，不会再出现 SSL 错误了。</p>
+<p>最后原文中说，为了长久设置，将这个目录存入控制面板中。我没理解是什么意思，是指环境变量吗？有朋友知道的话，欢迎留言告知我。</p>
+<p>我存入环境变量后，还是会出现 SSL 错误，这时再次执行上面那条命令即可。</p>
+<h2 id="jekyll-paginate-依赖缺失"><a href="#jekyll-paginate-依赖缺失" class="headerlink" title="jekyll-paginate 依赖缺失"></a>jekyll-paginate 依赖缺失</h2><p>因为 jekyll 3 中默认安装已经没有这个分页组件了，官方把这个分页组件插件化了，因此要独立安装。详情见 <a href="https://jekyllrb.com/docs/pagination/" target="_blank" rel="noopener">https://jekyllrb.com/docs/pagination/</a>。</p>
+<h3 id="错误呈现-1"><a href="#错误呈现-1" class="headerlink" title="错误呈现"></a>错误呈现</h3><p>在启动 jekyll 服务的时候出现以下错误：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">jekyll serve</span><br><span class="line">Configuration file: c:/gitWorkSpace/blog-based-on-jekyll-3/_config.yml</span><br><span class="line">  Dependency Error: Yikes! It looks like you don&apos;t have jekyll-paginate or one of its dependencies installed. In order to use Jekyll as currently configured, you&apos;ll need to install this gem. The full error message from Ruby is: &apos;cannot load such file -- jekyll-paginate&apos; If you run into trouble, you can find helpful resources at http://jekyllrb.com/help/!</span><br><span class="line">jekyll 3.1.2 | Error:  jekyll-paginate</span><br></pre></td></tr></table></figure>
+<h3 id="解决方法-1"><a href="#解决方法-1" class="headerlink" title="解决方法"></a>解决方法</h3><p>我们安装这个插件到本地即可。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">gem install jekyll-paginate</span><br><span class="line">Fetching: jekyll-paginate-1.1.0.gem (100%)</span><br><span class="line">Successfully installed jekyll-paginate-1.1.0</span><br><span class="line">Parsing documentation for jekyll-paginate-1.1.0</span><br><span class="line">Installing ri documentation for jekyll-paginate-1.1.0</span><br><span class="line">Done installing documentation for jekyll-paginate after 3 seconds</span><br><span class="line">1 gem installed</span><br></pre></td></tr></table></figure>
+<h2 id="被-Foxit-pdf-reader-占用4000端口"><a href="#被-Foxit-pdf-reader-占用4000端口" class="headerlink" title="被 Foxit pdf reader 占用4000端口"></a>被 Foxit pdf reader 占用4000端口</h2><h3 id="错误呈现-2"><a href="#错误呈现-2" class="headerlink" title="错误呈现"></a>错误呈现</h3><p>在本地使用命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jekyll serve</span><br></pre></td></tr></table></figure>
+<p>出现错误，如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">jekyll serve</span><br><span class="line">Configuration file: E:/GitWorkSpace/blog/_config.yml</span><br><span class="line">           Source: E:/GitWorkSpace/blog</span><br><span class="line">      Destination: E:/GitWorkSpace/blog/_site</span><br><span class="line">Incremental build: disabled. Enable with --incremental</span><br><span class="line">     Generating...</span><br><span class="line">                   done in 0.547 seconds.</span><br><span class="line"> Please add the following to your Gemfile to avoid polling for changes:</span><br><span class="line">   gem &apos;wdm&apos;, &apos;&gt;= 0.1.0&apos; if Gem.win_platform?</span><br><span class="line">Auto-regeneration: enabled for &apos;E:/GitWorkSpace/blog&apos;</span><br><span class="line">Configuration file: E:/GitWorkSpace/blog/_config.yml</span><br><span class="line">jekyll 3.1.1 | Error:  Permission denied - bind(2) for 127.0.0.1:4000</span><br></pre></td></tr></table></figure>
+<p>网上查阅后，这篇博文解决了我的问题。<a href="http://lxconan.github.io/2016/01/07/who-is-using-my-port/" target="_blank" rel="noopener">谁占了我的端口 for Windows –By Liu Xia, ThoughtWorks Senior Consultant. .NET Expert</a></p>
+<p>上述报错主要原因是，jekyll 启动使用的4000端口被福昕pdf阅读器的自动更新进程占用了，关掉这个进程，jekyll在本地调试启动服务时就没有问题了。</p>
+<h3 id="解决方法-2"><a href="#解决方法-2" class="headerlink" title="解决方法"></a>解决方法</h3><p>简单的解决方法是：</p>
+<p>输入命令，查看各端口被占用情况</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -ano</span><br></pre></td></tr></table></figure>
+<p>找到4000端口被占用的<code>PID</code></p>
+<p>我的结果如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">协议  本地地址          外部地址          状态           PID</span><br><span class="line">TCP  0.0.0.0:80        0.0.0.0:0         LISTENING     4</span><br><span class="line">TCP  0.0.0.0:135       0.0.0.0:0         LISTENING     836</span><br><span class="line">TCP  0.0.0.0:445       0.0.0.0:0         LISTENING     4</span><br><span class="line">TCP  0.0.0.0:1801      0.0.0.0:0         LISTENING     2312</span><br><span class="line">TCP  0.0.0.0:2103      0.0.0.0:0         LISTENING     2312</span><br><span class="line">TCP  0.0.0.0:2105      0.0.0.0:0         LISTENING     2312</span><br><span class="line">TCP  0.0.0.0:2107      0.0.0.0:0         LISTENING     2312</span><br><span class="line">TCP  0.0.0.0:3306      0.0.0.0:0         LISTENING     2404</span><br><span class="line">TCP  0.0.0.0:3389      0.0.0.0:0         LISTENING     1172</span><br><span class="line">TCP  0.0.0.0:49664     0.0.0.0:0         LISTENING     584</span><br><span class="line">TCP  0.0.0.0:49665     0.0.0.0:0         LISTENING     1072</span><br><span class="line">TCP  0.0.0.0:49666     0.0.0.0:0         LISTENING     460</span><br><span class="line">TCP  0.0.0.0:49667     0.0.0.0:0         LISTENING     1000</span><br><span class="line">TCP  0.0.0.0:49670     0.0.0.0:0         LISTENING     696</span><br><span class="line">TCP  0.0.0.0:49678     0.0.0.0:0         LISTENING     2312</span><br><span class="line">TCP  0.0.0.0:49692     0.0.0.0:0         LISTENING     688</span><br><span class="line">TCP  127.0.0.1:4000    0.0.0.0:0         LISTENING     2476</span><br><span class="line">TCP  127.0.0.1:4000    127.0.0.1:55160   ESTABLISHED   2476</span><br><span class="line">TCP  127.0.0.1:4012    0.0.0.0:0         LISTENING     12724</span><br></pre></td></tr></table></figure>
+<p>可以看到4000端口的PID是2476。下面查看是什么进程，命令行中输入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tasklist /svc /FI &quot;PID eq 2476&quot;</span><br></pre></td></tr></table></figure>
+<p>得到结果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">映像名称                       PID 服务</span><br><span class="line">========================= ======== ============================================</span><br><span class="line">FoxitProtect.exe              2476 FxService</span><br></pre></td></tr></table></figure>
+<p>可以看到正是福昕阅读器。下面关掉这个服务就好了。在 win10 中进入任务管理器，选择服务选项卡，关闭这个服务就好了，如下图：</p>
+<p><img src="http://ww4.sinaimg.cn/large/7011d6cfjw1f1ty28wwj4j20g00aiju7.jpg" alt></p>
+<p>当然也可以在启动jekyll服务的时候指定端口号，如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jekyll serve --port 3000</span><br></pre></td></tr></table></figure>
+<p>这样在浏览器中输入 <a href="http://localhost:3000/" target="_blank" rel="noopener">http://localhost:3000/</a> 就可以访问了。</p>
+<p>还可以在配置文件<code>_config.yml</code>中添加端口号设置（参考<a href="https://jekyllrb.com/docs/configuration/#serve-command-options" target="_blank" rel="noopener">官网文档-Serve Command OptionsPermalink</a>），如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># port</span><br><span class="line">port: 1234</span><br></pre></td></tr></table></figure>
+<p>此时，启动jekyll服务后，访问 <a href="http://localhost:1234/" target="_blank" rel="noopener">http://localhost:1234/</a> 即可</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>Donate comment here</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/upload/wechatpay.png" alt="Jason Lee WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/upload/alipay.jpg" alt="Jason Lee Alipay">
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/jekyll-端口-markdown-Foxit-RubyGems-HTML-CSS/" rel="tag"># jekyll 端口 markdown Foxit RubyGems HTML CSS</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/12/31/History-API/" rel="next" title="前端处理动态 url 和 pushStatus 的使用">
+                <i class="fa fa-chevron-left"></i> 前端处理动态 url 和 pushStatus 的使用
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/05/06/regular-expression-group/" rel="prev" title="浅谈正则表达式中的分组和引用">
+                浅谈正则表达式中的分组和引用 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/upload/195206.jpg" alt="Jason Lee">
+            
+              <p class="site-author-name" itemprop="name">Jason Lee</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">55</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">39</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/Jason003" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:jl5501@columbia.edu" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.zhihu.com/people/long-juan-feng-98-88" target="_blank" title="知乎">
+                      
+                        <i class="fa fa-fw fa-globe"></i>知乎</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#改版重构说明"><span class="nav-number">1.</span> <span class="nav-text">改版重构说明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RubyGems-无法访问，SSL-证书问题"><span class="nav-number">2.</span> <span class="nav-text">RubyGems 无法访问，SSL 证书问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#错误呈现"><span class="nav-number">2.1.</span> <span class="nav-text">错误呈现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解决方法"><span class="nav-number">2.2.</span> <span class="nav-text">解决方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#jekyll-paginate-依赖缺失"><span class="nav-number">3.</span> <span class="nav-text">jekyll-paginate 依赖缺失</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#错误呈现-1"><span class="nav-number">3.1.</span> <span class="nav-text">错误呈现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解决方法-1"><span class="nav-number">3.2.</span> <span class="nav-text">解决方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#被-Foxit-pdf-reader-占用4000端口"><span class="nav-number">4.</span> <span class="nav-text">被 Foxit pdf reader 占用4000端口</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#错误呈现-2"><span class="nav-number">4.1.</span> <span class="nav-text">错误呈现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解决方法-2"><span class="nav-number">4.2.</span> <span class="nav-text">解决方法</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jason Lee</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://Jason.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://yoursite.com/2016/03/12/jekyll-theme-version-2.0/';
+          this.page.identifier = '2016/03/12/jekyll-theme-version-2.0/';
+          this.page.title = '对这个 jekyll 博客主题的改版和重构';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://Jason.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

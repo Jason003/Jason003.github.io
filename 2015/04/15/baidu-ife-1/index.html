@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+
+
+
+
+<html class="theme-next mist" lang>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Baidu ife HTML CSS task,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="content{:toc}  百度前端学院的第一次任务笔记，HTML、CSS 基础。主要有 CSS 工作原理，选择器的使用，常用属性，行高属性，盒模型与定位，最后根据设计图实现4个页面。 任务任务： HTML、CSS基础    有人问到提交作业 fork 同步的问题，真心觉得官方 GitHub 的帮助文档讲的很好，我上一篇博客 同步一个 fork 就是翻译的这个官方文档，如果懒得看英文可以参考我">
+<meta name="keywords" content="Baidu ife HTML CSS task">
+<meta property="og:type" content="article">
+<meta property="og:title" content="百度Web前端技术学院(1)-HTML, CSS基础">
+<meta property="og:url" content="http://yoursite.com/2015/04/15/baidu-ife-1/index.html">
+<meta property="og:site_name" content="JL">
+<meta property="og:description" content="content{:toc}  百度前端学院的第一次任务笔记，HTML、CSS 基础。主要有 CSS 工作原理，选择器的使用，常用属性，行高属性，盒模型与定位，最后根据设计图实现4个页面。 任务任务： HTML、CSS基础    有人问到提交作业 fork 同步的问题，真心觉得官方 GitHub 的帮助文档讲的很好，我上一篇博客 同步一个 fork 就是翻译的这个官方文档，如果懒得看英文可以参考我">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://7q5cdt.com1.z0.glb.clouddn.com/Baidu-Front-end-task0001_7.png">
+<meta property="og:image" content="http://7q5cdt.com1.z0.glb.clouddn.com/Baidu-Front-end-task0001_3.jpg">
+<meta property="og:image" content="http://7q5cdt.com1.z0.glb.clouddn.com/Baidu-Front-end-task0001_4.jpg">
+<meta property="og:image" content="http://7q5cdt.com1.z0.glb.clouddn.com/Baidu-Front-end-task0001_5.jpg">
+<meta property="og:updated_time" content="2017-12-13T15:25:35.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="百度Web前端技术学院(1)-HTML, CSS基础">
+<meta name="twitter:description" content="content{:toc}  百度前端学院的第一次任务笔记，HTML、CSS 基础。主要有 CSS 工作原理，选择器的使用，常用属性，行高属性，盒模型与定位，最后根据设计图实现4个页面。 任务任务： HTML、CSS基础    有人问到提交作业 fork 同步的问题，真心觉得官方 GitHub 的帮助文档讲的很好，我上一篇博客 同步一个 fork 就是翻译的这个官方文档，如果懒得看英文可以参考我">
+<meta name="twitter:image" content="http://7q5cdt.com1.z0.glb.clouddn.com/Baidu-Front-end-task0001_7.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2015/04/15/baidu-ife-1/">
+
+
+
+
+
+  <title>百度Web前端技术学院(1)-HTML, CSS基础 | JL</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">JL</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Jason Lee's Blog</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/04/15/baidu-ife-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jason Lee">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/upload/195206.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JL">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">百度Web前端技术学院(1)-HTML, CSS基础</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-04-15T19:06:05+08:00">
+                2015-04-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/HTML-CSS/" itemprop="url" rel="index">
+                    <span itemprop="name">HTML CSS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2015/04/15/baidu-ife-1/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/04/15/baidu-ife-1/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <ul>
+<li>content<br>{:toc}</li>
+</ul>
+<p>百度前端学院的第一次任务笔记，HTML、CSS 基础。主要有 CSS 工作原理，选择器的使用，常用属性，行高属性，盒模型与定位，最后根据设计图实现4个页面。</p>
+<h2 id="任务"><a href="#任务" class="headerlink" title="任务"></a>任务</h2><p><strong>任务：</strong> <a href="https://github.com/Gaohaoyang/ife/tree/master/task/task0001" target="_blank" rel="noopener">HTML、CSS基础</a>   </p>
+<p>有人问到提交作业 fork 同步的问题，真心觉得官方 GitHub 的帮助文档讲的很好，我上一篇博客 <a href="http://gaohaoyang.github.io/2015/04/12/Syncing-a-fork/" target="_blank" rel="noopener">同步一个 fork</a> 就是翻译的这个官方文档，如果懒得看英文可以参考我的博客。   </p>
+<p>写点东西记录一下我的做题过程吧。   </p>
+<h2 id="CSS-如何工作"><a href="#CSS-如何工作" class="headerlink" title="CSS 如何工作"></a>CSS 如何工作</h2><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/Guide/CSS/Getting_started/How_CSS_works" target="_blank" rel="noopener">CSS 如何工作</a> Mozilla 的开发者文档讲的很好。</p>
+<blockquote>
+<p>浏览器在展现一个文档的时候，必须要把文档内容和相应的样式信息结合起来展示。 这个处理过程一般分两个阶段：   </p>
+<ol>
+<li>浏览器先将标记语言和 CSS 转换成 DOM (文档对象模型)结构。 这时 DOM 就代表了电脑内存中的相应文档，因为它已经融合了文档内容和相应的样式表。   </li>
+<li>最后浏览器把 DOM 的内容展示出来。   </li>
+</ol>
+</blockquote>
+<h2 id="层叠和继承"><a href="#层叠和继承" class="headerlink" title="层叠和继承"></a>层叠和继承</h2><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/Guide/CSS/Getting_started/Cascading_and_inheritance" target="_blank" rel="noopener">参考资料: 层叠和继承</a></p>
+<blockquote>
+<p>对于层叠来说，共有三种主要的样式来源：</p>
+<ul>
+<li>浏览器对HTML定义的默认样式。</li>
+<li>用户定义的样式。</li>
+<li><p>开发者定义的样式，可以有三种形式：</p>
+<ul>
+<li>定义在外部文件（外链样式）：本教程中案例主要是通过这种形式定义样式。</li>
+<li>在页面的头部定义（内联样式）：通过这种形式定义的样式只在本页面内生效。</li>
+<li>定义在特定的元素身上（行内样式）：这种形式多用于测试，可维护性较差。</li>
+</ul>
+</li>
+</ul>
+<p>用户定义的样式表会覆盖浏览器定义的默认样式，然后网页开发者定义的样式又会覆盖用户样式。</p>
+<p>再来看看优先级，从高到低依次为：网页开发者定义的样式、网页阅读者定义的样式、浏览器的默认样式。</p>
+<p>对继承的元素来说，子元素自身的样式优先级高于从父级继承来的样式。</p>
+<blockquote>
+<p>更多细节<br>CSS 另外提供了一个 !important 关键字，用户可以通过使用这个关键字使自己定义的样式覆盖掉开发者定义的样式。<br>这就意味着，作为开发者，你很难准确的预知页面最终在用户电脑上的显示效果。   </p>
+</blockquote>
+</blockquote>
+<h2 id="选择器"><a href="#选择器" class="headerlink" title="选择器"></a>选择器</h2><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/Guide/CSS/Getting_Started/Selectors" target="_blank" rel="noopener">参考资料:选择器（Selectors）</a></p>
+<h3 id="标签选择器"><a href="#标签选择器" class="headerlink" title="标签选择器"></a>标签选择器</h3><h3 id="类选择器（Class-selectors）"><a href="#类选择器（Class-selectors）" class="headerlink" title="类选择器（Class selectors）"></a>类选择器（Class selectors）</h3><blockquote>
+<p>通过设置元素的 class 属性，可以为元素指定类名。类名由开发者自己指定。 文档中的多个元素可以拥有同一个类名。</p>
+<p>在写样式表时，类选择器是以英文句号（.）开头的。</p>
+</blockquote>
+<h3 id="ID选择器（ID-selectors）"><a href="#ID选择器（ID-selectors）" class="headerlink" title="ID选择器（ID selectors）"></a>ID选择器（ID selectors）</h3><blockquote>
+<p>通过设置元素的 id 属性为该元素制定ID。ID名由开发者指定。每个ID在文档中必须是唯一的。</p>
+<p>在写样式表时，ID选择器是以#开头的。</p>
+</blockquote>
+<h3 id="优先级"><a href="#优先级" class="headerlink" title="优先级"></a>优先级</h3><blockquote>
+<ul>
+<li>如果多余一个规则指定了相同的属性值都应用到一个元素上，CSS规定拥有更高确定度的选择器优先级更高。ID选择器比类选择器更具确定度, 而类选择器比标签选择器（tag selector）更具确定度。</li>
+<li>如果样式中包含冲突的规则，且它们具有相同的确定度。那么，后出现的规则优先级高。</li>
+<li>如果你遇到规则冲突，你可以增加其中一条的确定度或将之移到后面以使它具有更高优先级。</li>
+</ul>
+</blockquote>
+<h3 id="伪类选择器（Pseudo-classes-selectors）"><a href="#伪类选择器（Pseudo-classes-selectors）" class="headerlink" title="伪类选择器（Pseudo-classes selectors）"></a>伪类选择器（Pseudo-classes selectors）</h3><h3 id="基于关系的选择器"><a href="#基于关系的选择器" class="headerlink" title="基于关系的选择器"></a>基于关系的选择器</h3><p>选择器    |选择的元素<br>A E    |任何是元素A的后代元素E (后代节点指A的子节点，子节点的子节点，以此类推)<br>A &gt; E    |任何元素A的子元素<br>E:first-child    |任何元素的第一个子元素E<br>B + E    |任何元素B的下一个兄弟元素E</p>
+<h2 id="其他属性"><a href="#其他属性" class="headerlink" title="其他属性"></a>其他属性</h2><h3 id="text-indent"><a href="#text-indent" class="headerlink" title="text-indent"></a><code>text-indent</code></h3><p><strong>定义和用法</strong><br>text-indent 属性规定文本块中首行文本的缩进。<br>注释：允许使用负值。如果使用负值，那么首行会被缩进到左边。   </p>
+<p><strong>可能的值</strong>    </p>
+<p>值    |描述<br>length    |定义固定的缩进。默认值：0。<br>%    |定义基于父元素宽度的百分比的缩进。<br>inherit    |规定应该从父元素继承 text-indent 属性的值。</p>
+<h3 id="text-transform"><a href="#text-transform" class="headerlink" title="text-transform"></a><code>text-transform</code></h3><p><strong>定义和用法</strong><br>text-transform 属性控制文本的大小写。      </p>
+<p><strong>说明</strong><br>这个属性会改变元素中的字母大小写，而不论源文档中文本的大小写。如果值为 capitalize，则要对某些字母大写，但是并没有明确定义如何确定哪些字母要大写，这取决于用户代理如何识别出各个“词”。   </p>
+<p><strong>可能的值</strong>  </p>
+<p>值    |描述<br>none    |默认。定义带有小写字母和大写字母的标准的文本。<br>capitalize    |文本中的每个单词以大写字母开头。<br>uppercase    |定义仅有大写字母。<br>lowercase    |定义无大写字母，仅有小写字母。<br>inherit    |规定应该从父元素继承 text-transform 属性的值。</p>
+<h3 id="text-decoration"><a href="#text-decoration" class="headerlink" title="text-decoration"></a><code>text-decoration</code></h3><p><strong>定义和用法</strong><br>text-decoration 属性规定添加到文本的修饰。<br>注释：修饰的颜色由 “color” 属性设置。<br>注释：IE、Chrome 或 Safari 不支持 “blink” 属性值。    </p>
+<p><strong>说明</strong><br>这个属性允许对文本设置某种效果，如加下划线。如果后代元素没有自己的装饰，祖先元素上设置的装饰会“延伸”到后代元素中。不要求用户代理支持 blink。</p>
+<h3 id="text-align"><a href="#text-align" class="headerlink" title="text-align"></a><code>text-align</code></h3><p><strong>定义和用法</strong><br>text-align 属性规定元素中的文本的水平对齐方式。<br>该属性通过指定行框与哪个点对齐，从而设置块级元素内文本的水平对齐方式。通过允许用户代理调整行内容中字母和字之间的间隔，可以支持值 justify；不同用户代理可能会得到不同的结果。   </p>
+<p><strong>可能的值</strong>   </p>
+<p>值    |描述<br>left    |把文本排列到左边。默认值：由浏览器决定。<br>right    |把文本排列到右边。<br>center    |把文本排列到中间。<br>justify    |实现两端对齐文本效果。<br>inherit    |规定应该从父元素继承 text-align 属性的值。</p>
+<h3 id="word-spacing"><a href="#word-spacing" class="headerlink" title="word-spacing"></a><code>word-spacing</code></h3><p><strong>定义</strong><br>word-spacing 属性增加或减少单词间的空白（即字间隔）。<br>该属性定义元素中字之间插入多少空白符。针对这个属性，“字” 定义为由空白符包围的一个字符串。如果指定为长度值，会调整字之间的通常间隔；所以，normal 就等同于设置为 0。允许指定负长度值，这会让字之间挤得更紧。<br>注释：允许使用负值。</p>
+<h3 id="white-space"><a href="#white-space" class="headerlink" title="white-space"></a><code>white-space</code></h3><p><strong>定义和用法</strong><br>white-space 属性设置如何处理元素内的空白。<br>这个属性声明建立布局过程中如何处理元素中的空白符。值 pre-wrap 和 pre-line 是 CSS 2.1 中新增的。</p>
+<p><strong>可能的值</strong></p>
+<p>值    |描述<br>normal    |默认。空白会被浏览器忽略。<br>pre    |空白会被浏览器保留。其行为方式类似 HTML 中的 <code>&lt;pre&gt;</code> 标签。<br>nowrap    |文本不会换行，文本会在在同一行上继续，直到遇到 <code>&lt;br&gt;</code> 标签为止。<br>pre-wrap    |保留空白符序列，但是正常地进行换行。<br>pre-line    |合并空白符序列，但是保留换行符。<br>inherit    |规定应该从父元素继承 white-space 属性的值。</p>
+<h3 id="font-face"><a href="#font-face" class="headerlink" title="@font-face"></a><code>@font-face</code></h3><p><strong>CSS3 @font-face 规则</strong><br>在 CSS3 之前，web 设计师必须使用已在用户计算机上安装好的字体。<br>通过 CSS3，web 设计师可以使用他们喜欢的任意字体。<br>当您您找到或购买到希望使用的字体时，可将该字体文件存放到 web 服务器上，它会在需要时被自动下载到用户的计算机上。<br>您“自己的”的字体是在 CSS3 @font-face 规则中定义的。   </p>
+<p>注释：Internet Explorer 8 以及更早的版本不支持新的 @font-face 规则。Internet Explorer 9+ 支持新的 @font-face 规则，但是仅支持 .eot 类型的字体 (Embedded OpenType)。</p>
+<p><strong>使用您需要的字体</strong><br>在新的 @font-face 规则中，您必须首先定义字体的名称（比如 myFirstFont），然后指向该字体文件。<br>如需为 HTML 元素使用字体，请通过 font-family 属性来引用字体的名称 (myFirstFont)：</p>
+<p><strong>实例</strong></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">font-face</span> &#123;</span><br><span class="line">    <span class="attribute">font-family</span>: myFirstFont;</span><br><span class="line">    <span class="attribute">src</span>: <span class="built_in">url</span>(<span class="string">'Sansation_Light.ttf'</span>),</span><br><span class="line">         <span class="built_in">url</span>(<span class="string">'Sansation_Light.eot'</span>); <span class="comment">/* IE9+ */</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">    <span class="attribute">font-family</span>: myFirstFont;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>CSS3 字体描述符</strong></p>
+<p>下面的表格列出了能够在 @font-face 规则中定义的所有字体描述符：</p>
+<p>描述符    |值    |描述<br>font-family    |name    |必需。规定字体的名称。<br>src    |URL    |必需。定义字体文件的 URL。<br>font-stretch    |normal<br>condensed<br>ultra-condensed<br>extra-condensed<br>semi-condensed<br>expanded<br>semi-expanded<br>extra-expanded<br>ultra-expanded|可选。定义如何拉伸字体。默认是 “normal”。<br>font-style|ormal<br>italic<br>oblique|可选。定义字体的样式。默认是 “normal”。<br>font-weight|normal<br>bold<br>100<br>200<br>300<br>400<br>500<br>600<br>700<br>800<br>900|选。定义字体的粗细。默认是 “normal”。<br>unicode-range    |unicode-range    |可选。定义字体支持的 UNICODE 字符范围。默认是 “U+0-10FFFF”。</p>
+<h2 id="深入了解行高属性"><a href="#深入了解行高属性" class="headerlink" title="深入了解行高属性"></a>深入了解行高属性</h2><p><a href="http://www.cnblogs.com/fengzheng126/archive/2012/05/18/2507632.html" target="_blank" rel="noopener">参考：深入了解css的行高Line Height属性</a></p>
+<p>一般来说，设置行高为<code>值：纯数字</code>是最理想的方式，因为其会随着对应的 <code>font-size</code> 而缩放。</p>
+<h2 id="盒模型及定位"><a href="#盒模型及定位" class="headerlink" title="盒模型及定位"></a>盒模型及定位</h2><h3 id="已知宽度的div居中"><a href="#已知宽度的div居中" class="headerlink" title="已知宽度的div居中"></a>已知宽度的div居中</h3><ul>
+<li>用两种方法来实现一个背景色为红色、宽度为960px的<div>在浏览器中居中</div></li>
+</ul>
+<p>我的方法一：</p>
+<p>使用 <code>margin：0 auto;</code></p>
+<p>html文件</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">type</span>=<span class="string">"text/css"</span> <span class="attr">href</span>=<span class="string">"task0001-2.css"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"center"</span>&gt;</span>aaa<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>css文件</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.center</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">960px</span>;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">0</span> auto;</span><br><span class="line">    <span class="attribute">background-color</span>: red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>方法二：</p>
+<p>绝对定位，左边距离 body 50%，<code>margin-left: -480px</code></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.center</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">960px</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: red;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">left</span>: <span class="number">50%</span>;</span><br><span class="line">    <span class="attribute">margin-left</span>: -<span class="number">480px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a href="http://gaohaoyang.github.io/baidu-ife-practice/task0001/task0001-2.html" target="_blank" rel="noopener">Demo</a></p>
+<h4 id="对于居中的补充"><a href="#对于居中的补充" class="headerlink" title="对于居中的补充"></a>对于居中的补充</h4><p>参考自 <a href="http://zh.learnlayout.com/" target="_blank" rel="noopener">学习CSS布局</a>。</p>
+<p>像下面这样写css代码，使用 <code>max-width</code> 替代 <code>width</code>  可以使浏览器更好地处理小窗口的情况。这点在移动设备上显得尤为重要。</p>
+<p>有效的避免了如下问题：<br>当浏览器窗口比元素的宽度还要窄时，浏览器会显示一个水平滚动条来容纳页面。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#main</span> &#123;</span><br><span class="line">    <span class="attribute">max-width</span>: <span class="number">600px</span>;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">0</span> auto;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><a href="http://www.cnblogs.com/2050/p/3392803.html" target="_blank" rel="noopener">CSS布局奇淫技巧之–各种居中</a></li>
+</ul>
+<h3 id="早期css滑动门"><a href="#早期css滑动门" class="headerlink" title="早期css滑动门"></a>早期css滑动门</h3><ul>
+<li>有的圆角矩形是复杂图案，无法直接用border-radius，请在不使用 border-radius 的情况下实现一个可复用的高度和宽度都自适应的圆角矩形<br>示例 <img src="http://7q5cdt.com1.z0.glb.clouddn.com/Baidu-Front-end-task0001_7.png" alt="圆角矩形"></li>
+</ul>
+<p>这道题我一开始不会做，查阅了资料，发现这就是所谓的 css 滑动门的应用。<a href="http://www.bkjia.com/webzh/759711.html" target="_blank" rel="noopener">妙味云课堂之css：滑动门、圆角、css精灵</a><br>使用三层嵌套，或者四层嵌套的 <code>div</code>，通过背景图定位等方式可以实现。</p>
+<h3 id="左侧固定右侧自适应宽度的两列布局"><a href="#左侧固定右侧自适应宽度的两列布局" class="headerlink" title="左侧固定右侧自适应宽度的两列布局"></a>左侧固定右侧自适应宽度的两列布局</h3><ul>
+<li>用两种不同的方法来实现一个两列布局，其中左侧部分宽度固定、右侧部分宽度随浏览器宽度的变化而自适应变化 <img src="http://7q5cdt.com1.z0.glb.clouddn.com/Baidu-Front-end-task0001_3.jpg" alt="pic"></li>
+</ul>
+<p>我的方法一：</p>
+<p>不使用浮动，使用绝对定位，将左上角的块放好位置，右边的块设置<code>margin-left</code></p>
+<p>html 文件：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">title</span>&gt;</span>layout<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">type</span>=<span class="string">"text/css"</span> <span class="attr">href</span>=<span class="string">"task0001-6-3.css"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"row"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"left"</span>&gt;</span>DIV-A<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"right"</span>&gt;</span>DIV-B<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"bottom"</span>&gt;</span>DIV-C<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>css 文件：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.row</span> &#123;</span><br><span class="line">    <span class="attribute">position</span>: relative;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.left</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: red;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">top</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">left</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.right</span> &#123;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: blue;</span><br><span class="line">    <span class="attribute">margin-left</span>: <span class="number">100px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.bottom</span> &#123;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: yellow;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>方法二：   </p>
+<p>使用浮动，左边的块使用浮动，右边的块使用<code>margin-left</code></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.left</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: red;</span><br><span class="line">    <span class="attribute">float</span>: left;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.right</span> &#123;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: blue;</span><br><span class="line">    <span class="attribute">margin-left</span>: <span class="number">100px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.bottom</span> &#123;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: yellow;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a href="http://gaohaoyang.github.io/baidu-ife-practice/task0001/task0001-6-3.html" target="_blank" rel="noopener">Demo</a></p>
+<p><strong>补充：</strong></p>
+<p>看完了后面的 BFC 之后，本题和下一题都可以用另一种方法了<br>总之我已经震惊了！太爽了！有没有！</p>
+<p>html</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">title</span>&gt;</span>使用 BFC 进行两列布局<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"two-col-layout-with-BFC.css"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"left"</span>&gt;</span>DIV-A<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"right"</span>&gt;</span>DIV-B<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"bottom"</span>&gt;</span>DIV-C<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>css</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.left</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: blue;</span><br><span class="line">    <span class="attribute">float</span>: left;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.right</span>&#123;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: yellow;</span><br><span class="line">    <span class="attribute">overflow</span>: hidden;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.bottom</span>&#123;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a href="http://gaohaoyang.github.io/baidu-ife-practice/task0001/two-col-layout-with-BFC.html" target="_blank" rel="noopener">Demo</a></p>
+<h3 id="双飞翼布局"><a href="#双飞翼布局" class="headerlink" title="双飞翼布局"></a>双飞翼布局</h3><ul>
+<li>用两种不同的方式来实现一个三列布局，其中左侧和右侧的部分宽度固定，中间部分宽度随浏览器宽度的变化而自适应变化</li>
+</ul>
+<p>原题中参考资料 <a href="http://www.imooc.com/wenda/detail/254035" target="_blank" rel="noopener">双飞翼布局</a>   </p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">title</span>&gt;</span>Flying Swing Layout<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">type</span>=<span class="string">"text/css"</span> <span class="attr">href</span>=<span class="string">"task0001-6-4.css"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"bd"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"main"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"main-wrap"</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">p</span>&gt;</span>Flying Swing Layout<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"sub"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">p</span>&gt;</span>Flying Swing Layout<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">                left</span><br><span class="line">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"extra"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">p</span>&gt;</span>Flying Swing Layout<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">                right</span><br><span class="line">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>css</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.bd</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/*padding: 0 190px;*/</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.main</span> &#123;</span><br><span class="line">    <span class="attribute">float</span>: left;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#aaa</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.main-wrap</span> &#123;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">0</span> <span class="number">190px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.sub</span> &#123;</span><br><span class="line">    <span class="attribute">float</span>: left;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">190px</span>;</span><br><span class="line">    <span class="attribute">margin-left</span>: -<span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: blue;        </span><br><span class="line">    <span class="comment">/*position: relative;</span></span><br><span class="line"><span class="comment">    left: -190px;*/</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.extra</span> &#123;</span><br><span class="line">    <span class="attribute">float</span>: left;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">190px</span>;</span><br><span class="line">    <span class="attribute">margin-left</span>: -<span class="number">190px</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: yellow;        </span><br><span class="line">    <span class="comment">/*position: relative;</span></span><br><span class="line"><span class="comment">    right: -190px;*/</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a href="http://gaohaoyang.github.io/baidu-ife-practice/task0001/task0001-6-4.html" target="_blank" rel="noopener">Demo</a></p>
+<p><strong>补充：</strong></p>
+<p>使用 BFC 的另一种方法，我再一次震惊！</p>
+<p>代码超级简单！</p>
+<p>html</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">title</span>&gt;</span>flying-Swing-BFC<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"flying-Swing-BFC.css"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"left"</span>&gt;</span>left<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"right"</span>&gt;</span>right<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"main"</span>&gt;</span></span><br><span class="line">            flying-Swing-BFC.htmlflying-Swing-BFC.htmlflying-Swing-BFC.htmlflying-Swing-BFC.htmlflying-Swing-BFC.htmlflying-Swing-BFC.htmlflying-Swing-BFC.htmlflying-Swing-BFC.htmlflying-Swing-BFC.htmlflying-Swing-BFC.htmlflying-Swing-BFC.html</span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"footer"</span>&gt;</span></span><br><span class="line">            footerfooterfooterfooterfooterfooterfooterfooterfooter</span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>css</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.left</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: red;</span><br><span class="line">    <span class="attribute">float</span>: left;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.right</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: blue;</span><br><span class="line">    <span class="attribute">float</span>: right;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.main</span>&#123;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#eee</span>;</span><br><span class="line">    <span class="attribute">overflow</span>: hidden;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a href="http://gaohaoyang.github.io/baidu-ife-practice/task0001/flying-Swing-BFC.html" target="_blank" rel="noopener">Demo</a></p>
+<h3 id="浮动布局"><a href="#浮动布局" class="headerlink" title="浮动布局"></a>浮动布局</h3><ul>
+<li>实现一个浮动布局，红色容器中每一行的蓝色容器数量随着浏览器宽度的变化而变化 <img src="http://7q5cdt.com1.z0.glb.clouddn.com/Baidu-Front-end-task0001_4.jpg" alt="pic"><img src="http://7q5cdt.com1.z0.glb.clouddn.com/Baidu-Front-end-task0001_5.jpg" alt="pic"></li>
+</ul>
+<p>这个题我觉的直接将每一个块浮动起来就好了，不知我理解的对不对。</p>
+<p>html文件</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">type</span>=<span class="string">"text/css"</span> <span class="attr">href</span>=<span class="string">"task0001-6-5.css"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>css文件</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">    <span class="attribute">background-color</span>: red;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">150px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">10px</span>;</span><br><span class="line">    <span class="attribute">float</span>: left;</span><br><span class="line">    <span class="attribute">background-color</span>: blue;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a href="file:///E:/GitWorkSpace/baidu-ife-practice/task0001/task0001-6-5.html" target="_blank" rel="noopener">Demo</a></p>
+<h3 id="清除浮动-闭合浮动"><a href="#清除浮动-闭合浮动" class="headerlink" title="清除浮动/闭合浮动"></a>清除浮动/闭合浮动</h3><p>参考自 <a href="http://www.iyunlu.com/view/css-xhtml/55.html" target="_blank" rel="noopener">那些年我们一起清除过的浮动 by 一丝冰凉</a></p>
+<ol>
+<li>清除浮动：清除对应的单词是 clear，对应CSS中的属性是 clear：left | right | both | none；</li>
+<li>闭合浮动：更确切的含义是使浮动元素闭合，从而减少浮动带来的影响。</li>
+</ol>
+<p>我们想要达到的效果更确切地说是闭合浮动，而不是单纯的清除浮动，设置clear：both清除浮动并不能解决warp高度塌陷的问题。</p>
+<p>正是因为浮动的这种特性，导致本属于普通流中的元素浮动之后，包含框内部由于不存在其他普通流元素了，也就表现出高度为0（<strong>高度塌陷</strong>）。在实际布局中，往往这并不是我们所希望的，所以需要闭合浮动元素，使其包含框表现出正常的高度。</p>
+<p>最后一丝姐给了两个精益求精方案，我觉得方案一更易于理解，这里实践一下：</p>
+<p><a href="http://gaohaoyang.github.io/baidu-ife-practice/task0001/close-float.html" target="_blank" rel="noopener">闭合浮动的Demo</a></p>
+<p>下面是源码</p>
+<p>html</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"close-float.css"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"row clearfix"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"left"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">h1</span>&gt;</span>left<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">div</span>&gt;</span>Content or Something<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"right"</span>&gt;</span>right<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"row2"</span>&gt;</span>Row2<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>css</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.row</span> &#123;</span><br><span class="line">    <span class="attribute">border</span>: <span class="number">1px</span> solid red;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.clearfix</span><span class="selector-pseudo">:after</span> &#123;</span><br><span class="line">    <span class="attribute">content</span>: <span class="string">"\200B"</span>;</span><br><span class="line">    <span class="attribute">display</span>: block;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">clear</span>: both;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.clearfix</span> &#123;</span><br><span class="line">    *zoom: 1;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.left</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">float</span>: left;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#eee</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.right</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">float</span>: right;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#eee</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.row2</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">600px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">50px</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#aaa</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>其中<code>*zoom: 1</code>是为了触发<code>hasLayout</code></p>
+<p>还有另一种解决方案！</p>
+<p>参考自：<a href="http://zh.learnlayout.com/clearfix.html" target="_blank" rel="noopener">清除浮动（clearfix hack）</a></p>
+<p>直接使用，如下代码即可</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.clearfix</span>&#123;</span><br><span class="line">    <span class="attribute">overflow</span>: auto;</span><br><span class="line">    <span class="attribute">zoom</span>: <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a href="http://gaohaoyang.github.io/baidu-ife-practice/task0001/close-float-2.html" target="_blank" rel="noopener">Demo</a></p>
+<p>(实际上，我看完后面的资料，再翻到这里就明白了！正是使用了BFC原理！！！！！！！)</p>
+<p><strong>但是今天遇到一个坑！</strong></p>
+<p>如果使用了 <code>over-flow</code>，在后面如果有元素要绝对布局在父元素的外面的，意思就是出现 <code>top</code>, <code>bottom</code>, <code>left</code>, <code>right</code> 的值为负值时，就会出现看不到，或者滚动条的问题！</p>
+<p>若是有这种要求，我觉得还是用一丝姐姐的解决方案比较好。</p>
+<p><strong>参考</strong></p>
+<ul>
+<li><a href="http://zfengqi.me/?p=87" target="_blank" rel="noopener">清除浮动的几种方法</a></li>
+</ul>
+<h3 id="box-sizing"><a href="#box-sizing" class="headerlink" title="box-sizing"></a><code>box-sizing</code></h3><p>当你设置一个元素为 <code>box-sizing: border-box;</code> 时，此元素的内边距和边框不再会增加它的宽度。</p>
+<p>他们的内边距和边框都是向内的挤压的。支持IE8+，需要加浏览器内核。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.simple</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">500px</span>;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">20px</span> auto;</span><br><span class="line">    <span class="attribute">-webkit-box-sizing</span>: border-box;</span><br><span class="line">    <span class="attribute">-moz-box-sizing</span>: border-box;</span><br><span class="line">    <span class="attribute">box-sizing</span>: border-box;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="响应式布局"><a href="#响应式布局" class="headerlink" title="响应式布局"></a>响应式布局</h3><p>媒体查询</p>
+<ul>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/Guide/CSS/Media_queries" target="_blank" rel="noopener">MDN CSS媒体查询</a></li>
+<li><p><a href="http://zh.learnlayout.com/media-queries.html" target="_blank" rel="noopener">媒体查询-学习CSS布局</a></p>
+<p>  <code>@media screen and (min-width: 500px) and (max-width: 800px) { ... }</code></p>
+</li>
+<li><p><a href="https://dev.opera.com/articles/an-introduction-to-meta-viewport-and-viewport/" target="_blank" rel="noopener">An Introduction to Meta Viewport and @viewport</a></p>
+</li>
+</ul>
+<h3 id="多列布局"><a href="#多列布局" class="headerlink" title="多列布局"></a>多列布局</h3><ul>
+<li><a href="http://zh.learnlayout.com/column.html" target="_blank" rel="noopener">column</a></li>
+</ul>
+<h3 id="BFC-和-IE-的-hasLayout"><a href="#BFC-和-IE-的-hasLayout" class="headerlink" title="BFC 和 IE 的 hasLayout"></a>BFC 和 IE 的 hasLayout</h3><ul>
+<li><a href="http://www.cnblogs.com/pigtail/archive/2013/01/23/2871627.html" target="_blank" rel="noopener">BFC和IE的hasLayout</a></li>
+<li><a href="http://outofmemory.cn/wr/?u=http%3A%2F%2Fkkeys.me%2Fpost%2F68547473290" target="_blank" rel="noopener">Block Formatting Context 的几大用处</a></li>
+</ul>
+<p>看完这个资料后我震惊了！竟然可以这么玩儿！<br>我将本文之前提到的两列布局，双飞翼布局又重新写了一遍！太爽了！代码超级简洁！</p>
+<p><strong>Block Formatting Context 的几大用处：</strong></p>
+<ol>
+<li>防止 margin 折叠</li>
+<li>清除float</li>
+<li>不会环绕float元素</li>
+</ol>
+<p>相关资料</p>
+<ul>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/Visual_formatting_model" target="_blank" rel="noopener">视觉格式化模型(visual formatting model)</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/Block_formatting_context" target="_blank" rel="noopener">块格式化上下文(block formatting context)</a></li>
+</ul>
+<h3 id="div-三列等高"><a href="#div-三列等高" class="headerlink" title="div 三列等高"></a><code>div</code> 三列等高</h3><p><a href="http://show.sysu.edu.cn/?action-blogdetail-uid-2383-id-5040" target="_blank" rel="noopener">纯CSS实现三列DIV等高布局</a></p>
+<p>最关键的地方有3句：</p>
+<p>最外层div设置一个溢出隐藏</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#wrap</span> &#123;</span><br><span class="line">    <span class="attribute">overflow</span>:hidden;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>每一个子块设置 padding 和 margin</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#left</span>,<span class="selector-id">#center</span>,<span class="selector-id">#right</span>&#123;</span><br><span class="line">    <span class="attribute">margin-bottom</span>:-<span class="number">10000px</span>;</span><br><span class="line">    <span class="attribute">padding-bottom</span>:<span class="number">10000px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>overflow:hidden;    ‘隐藏溢出。如果内容溢出wrap层，则不显示。</p>
+<p>margin-bottom:-10000px;    ‘底部边距-10000px。<br>padding-bottom:10000px;    ‘底部填充10000px。<br>上面这两句能够实现的效果就是，产生10000px的填充，然后用负的边距把它给抵销掉。</p>
+<h3 id="去除inline-block元素间间距"><a href="#去除inline-block元素间间距" class="headerlink" title="去除inline-block元素间间距"></a>去除inline-block元素间间距</h3><p>一开始我不知道是因为使用了 <code>display: inline-block</code> 会有间距。后来查找资料找到了相关的方案。</p>
+<ul>
+<li><a href="http://www.zhangxinxu.com/wordpress/2012/04/inline-block-space-remove-%E5%8E%BB%E9%99%A4%E9%97%B4%E8%B7%9D/" target="_blank" rel="noopener">去除inline-block元素间间距的N种方法</a></li>
+<li><a href="https://css-tricks.com/fighting-the-space-between-inline-block-elements/" target="_blank" rel="noopener">Fighting the Space Between Inline Block Elements</a></li>
+</ul>
+<p>真正意义上的inline-block水平呈现的元素间，换行显示或空格分隔的情况下会有间距。<br>这种表现是符合规范的应该有的表现。</p>
+<p>解决方法有很多，上述博文中提到的有：</p>
+<ol>
+<li>移除空格</li>
+<li>使用 <code>margin</code> 负值</li>
+<li>取消闭合标签</li>
+<li>使用 <code>font-size: 0</code></li>
+<li>使用 <code>letter-spacing</code></li>
+<li>使用 <code>word-spacing</code></li>
+<li>其他</li>
+</ol>
+<p>我觉得使用 4 <code>font-size: 0</code> 比较好，对别的元素影响最小。代码如下：在 <code>a</code> 的外层将字体尺寸设为 0，载对内层的 <code>a</code> 重新设置字体大小，即可。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">nav</span> &#123;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">nav</span> <span class="selector-tag">a</span> &#123;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">16px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="最终作品"><a href="#最终作品" class="headerlink" title="最终作品"></a>最终作品</h2><ul>
+<li><a href="http://gaohaoyang.github.io/ife/task/task0001/work/Gaohaoyang/index.html" target="_blank" rel="noopener">在线Demo</a></li>
+<li><a href="https://github.com/Gaohaoyang/ife/tree/master/task/task0001/work/Gaohaoyang" target="_blank" rel="noopener">源代码</a></li>
+</ul>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
+<li><a href="https://github.com/ecomfe/spec" target="_blank" rel="noopener">HTML、CSS的代码规范</a> 自己要试着改变一些代码风格了，规范化！  </li>
+<li><a href="http://www.zhihu.com/question/20455165" target="_blank" rel="noopener">顾轶灵:Web语义化</a><br>我看他回答最后的举例的Sildes做的非常好，可以经常看看。<a href="http://justineo.github.io/slideshows/semantic-html/" target="_blank" rel="noopener">Semantic HTML</a>。他的其他Slides也做的非常好，很喜欢这种风格！</li>
+<li><a href="http://www.w3cfuns.com/blog-5445898-5398950.html" target="_blank" rel="noopener">CSS命名规范@W3C Funs</a> 起名不再困难！</li>
+<li><a href="点击阅读: CSS浏览器兼容性列表">点击阅读: CSS浏览器兼容性列表-维基百科</a> 类似的我想到了 <a href="http://caniuse.com/" target="_blank" rel="noopener">Can I Use</a>，Can I Use 包含的更多，包括 HTML5, CSS SVG, JS API 等。</li>
+</ul>
+<ul>
+<li><a href="http://zh.learnlayout.com/" target="_blank" rel="noopener">学习CSS布局</a></li>
+<li><a href="http://mediaqueri.es/" target="_blank" rel="noopener">Media Queries</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/Guide/CSS/Using_CSS_gradients" target="_blank" rel="noopener">使用CSS渐变</a></li>
+<li><a href="http://www.w3cplus.com/content/css3-gradient" target="_blank" rel="noopener">CSS3 Gradient</a></li>
+<li><a href="http://www.colorzilla.com/gradient-editor/" target="_blank" rel="noopener">CSS渐变生成器</a></li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>Donate comment here</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/upload/wechatpay.png" alt="Jason Lee WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/upload/alipay.jpg" alt="Jason Lee Alipay">
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Baidu-ife-HTML-CSS-task/" rel="tag"># Baidu ife HTML CSS task</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/04/12/Syncing-a-fork/" rel="next" title="同步一个 fork">
+                <i class="fa fa-chevron-left"></i> 同步一个 fork
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/04/22/baidu-ife-2-javascript/" rel="prev" title="百度Web前端技术学院(2)-JavaScript 基础">
+                百度Web前端技术学院(2)-JavaScript 基础 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/upload/195206.jpg" alt="Jason Lee">
+            
+              <p class="site-author-name" itemprop="name">Jason Lee</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">55</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">39</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/Jason003" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:jl5501@columbia.edu" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.zhihu.com/people/long-juan-feng-98-88" target="_blank" title="知乎">
+                      
+                        <i class="fa fa-fw fa-globe"></i>知乎</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#任务"><span class="nav-number">1.</span> <span class="nav-text">任务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS-如何工作"><span class="nav-number">2.</span> <span class="nav-text">CSS 如何工作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#层叠和继承"><span class="nav-number">3.</span> <span class="nav-text">层叠和继承</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#选择器"><span class="nav-number">4.</span> <span class="nav-text">选择器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#标签选择器"><span class="nav-number">4.1.</span> <span class="nav-text">标签选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类选择器（Class-selectors）"><span class="nav-number">4.2.</span> <span class="nav-text">类选择器（Class selectors）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ID选择器（ID-selectors）"><span class="nav-number">4.3.</span> <span class="nav-text">ID选择器（ID selectors）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优先级"><span class="nav-number">4.4.</span> <span class="nav-text">优先级</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#伪类选择器（Pseudo-classes-selectors）"><span class="nav-number">4.5.</span> <span class="nav-text">伪类选择器（Pseudo-classes selectors）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基于关系的选择器"><span class="nav-number">4.6.</span> <span class="nav-text">基于关系的选择器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他属性"><span class="nav-number">5.</span> <span class="nav-text">其他属性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#text-indent"><span class="nav-number">5.1.</span> <span class="nav-text">text-indent</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#text-transform"><span class="nav-number">5.2.</span> <span class="nav-text">text-transform</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#text-decoration"><span class="nav-number">5.3.</span> <span class="nav-text">text-decoration</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#text-align"><span class="nav-number">5.4.</span> <span class="nav-text">text-align</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#word-spacing"><span class="nav-number">5.5.</span> <span class="nav-text">word-spacing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#white-space"><span class="nav-number">5.6.</span> <span class="nav-text">white-space</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#font-face"><span class="nav-number">5.7.</span> <span class="nav-text">@font-face</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#深入了解行高属性"><span class="nav-number">6.</span> <span class="nav-text">深入了解行高属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#盒模型及定位"><span class="nav-number">7.</span> <span class="nav-text">盒模型及定位</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#已知宽度的div居中"><span class="nav-number">7.1.</span> <span class="nav-text">已知宽度的div居中</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#对于居中的补充"><span class="nav-number">7.1.1.</span> <span class="nav-text">对于居中的补充</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#早期css滑动门"><span class="nav-number">7.2.</span> <span class="nav-text">早期css滑动门</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#左侧固定右侧自适应宽度的两列布局"><span class="nav-number">7.3.</span> <span class="nav-text">左侧固定右侧自适应宽度的两列布局</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#双飞翼布局"><span class="nav-number">7.4.</span> <span class="nav-text">双飞翼布局</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#浮动布局"><span class="nav-number">7.5.</span> <span class="nav-text">浮动布局</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#清除浮动-闭合浮动"><span class="nav-number">7.6.</span> <span class="nav-text">清除浮动/闭合浮动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#box-sizing"><span class="nav-number">7.7.</span> <span class="nav-text">box-sizing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#响应式布局"><span class="nav-number">7.8.</span> <span class="nav-text">响应式布局</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多列布局"><span class="nav-number">7.9.</span> <span class="nav-text">多列布局</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BFC-和-IE-的-hasLayout"><span class="nav-number">7.10.</span> <span class="nav-text">BFC 和 IE 的 hasLayout</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#div-三列等高"><span class="nav-number">7.11.</span> <span class="nav-text">div 三列等高</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#去除inline-block元素间间距"><span class="nav-number">7.12.</span> <span class="nav-text">去除inline-block元素间间距</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#最终作品"><span class="nav-number">8.</span> <span class="nav-text">最终作品</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">9.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jason Lee</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://Jason.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://yoursite.com/2015/04/15/baidu-ife-1/';
+          this.page.identifier = '2015/04/15/baidu-ife-1/';
+          this.page.title = '百度Web前端技术学院(1)-HTML, CSS基础';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://Jason.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

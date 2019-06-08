@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+
+
+
+
+<html class="theme-next mist" lang>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Math,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="This is my outline for the Mathematics mid term~ 第十四章：图的基本概念1. 对于任何简单无向图：点连通度&amp;lt;=边连通度&amp;lt;=smalldelta(G) 2. 握手定理：2m=∑d(vi) 3. 生成子图：少边不少点  子图：少边也可以少点 4. 边连通度：最小边割集的大小（其中边的数量） 5. 设G为n阶k-正则图，证明：G的补图也是正则图">
+<meta name="keywords" content="Math">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Discrete Mathematics-mid term">
+<meta property="og:url" content="http://yoursite.com/2018/05/02/discrete mathematics mid/index.html">
+<meta property="og:site_name" content="JL">
+<meta property="og:description" content="This is my outline for the Mathematics mid term~ 第十四章：图的基本概念1. 对于任何简单无向图：点连通度&amp;lt;=边连通度&amp;lt;=smalldelta(G) 2. 握手定理：2m=∑d(vi) 3. 生成子图：少边不少点  子图：少边也可以少点 4. 边连通度：最小边割集的大小（其中边的数量） 5. 设G为n阶k-正则图，证明：G的补图也是正则图">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-04-22T05:28:38.726Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Discrete Mathematics-mid term">
+<meta name="twitter:description" content="This is my outline for the Mathematics mid term~ 第十四章：图的基本概念1. 对于任何简单无向图：点连通度&amp;lt;=边连通度&amp;lt;=smalldelta(G) 2. 握手定理：2m=∑d(vi) 3. 生成子图：少边不少点  子图：少边也可以少点 4. 边连通度：最小边割集的大小（其中边的数量） 5. 设G为n阶k-正则图，证明：G的补图也是正则图">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/05/02/discrete mathematics mid/">
+
+
+
+
+
+  <title>Discrete Mathematics-mid term | JL</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">JL</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Jason Lee's Blog</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/02/discrete mathematics mid/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jason Lee">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/upload/195206.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JL">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Discrete Mathematics-mid term</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-02T19:29:00+08:00">
+                2018-05-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Math/" itemprop="url" rel="index">
+                    <span itemprop="name">Math</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/05/02/discrete mathematics mid/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/05/02/discrete mathematics mid/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>This is my outline for the Mathematics mid term~</p>
+<h2 id="第十四章：图的基本概念"><a href="#第十四章：图的基本概念" class="headerlink" title="第十四章：图的基本概念"></a>第十四章：图的基本概念</h2><pre><code>1. 对于任何简单无向图：点连通度&lt;=边连通度&lt;=smalldelta(G)
+2. 握手定理：2m=∑d(vi)
+3. 生成子图：少边不少点  子图：少边也可以少点
+4. 边连通度：最小边割集的大小（其中边的数量）
+5. 设G为n阶k-正则图，证明：G的补图也是正则图。（使用dG(vi)+dG&apos;(vi)=n-1，为n-k-1-正则图)
+6. 不含有奇圈-二部图
+7. 在完全二部图中Kr,s中，加上C(r,2)+C(s,2)可以得到完全图
+8. n阶非联通图的边数至多为:(n-1)(n-2)/2条（此时为2-连通）
+9. 设9阶图G中，每个顶点的度数不是5就是6，证明：至少有5个6度顶点或者至少有6个5度顶点。（可以使用枚举法，通过总共的d加起来必须是偶数进行证明）
+10. 证明：三维空间内不存在有奇数个面并且每个面都有奇数个棱的多面体。（反证法：假设存在这个多面体，则假设有图G=&lt;V,E&gt;，其中的V表示面（这里用点表示），而E表示两个面形成的棱，这样可以发现所有的度数相加是奇数（奇数个奇数之和还是奇数），违背了握手定理）
+11. 现在有三个四阶的4条边的无向简单图，证明至少有两个同构（四阶四边无向，度数分布只有两种，根据鸽巢原理，一定至少有两个是同构的）
+12. 假设G为n阶自补图，证明n=4k或4k+1（必有(n-1)n=2*k，其中k表示的是G中的边数，同时要说n-1和n互素）（自补图：补图和自己同构的图）
+13. 设G1和G2为无向简单图，G1&apos;和G2&apos;为其补图，证明：G1和G2同构当且仅当G1&apos;和G2&apos;同构。证明：先从左向右证明,V(G1)=V(G1&apos;)=V1,V(G2)=V(G2&apos;)=V2,由于G1和G2同构，则必有一个双射f：V1-&gt;V2，使(u,v)∈E(G1)（任意u，v∈V1）时有(f(u),f(v))∈E(G2)，则有(u,v)∉E(G1)有(f(u),f(v))∉E(G2)，这样一来就有(u,v)∈E(G1&apos;)-&gt;(f(u),f(v))∈E(G2&apos;)即其补图同构,而从右向左证明只需要将第一个式子里的G换成G&apos;即可
+14. 设e为无向图G中的一条边，证明e为桥当且仅当它不在任何圈中。
+15. 设e=(u,v)为无向图G中的一桥，证明v为割点当且仅当其不为悬挂顶点（可以用反证法证明）
+16. 设2&lt;=r&lt;=s则在完全二部图中，含有r-1个圈，至多有s个顶点不相邻，至多有r个边不相邻，点连通度=边连通度=r
+17. 设G为六阶无向简单图，证明G或者其补图存在三个顶点彼此相邻。（首先根据鸽巢原理，在G或者其补图中，一个点v至少和3个点相邻，再进行后面的证明）
+18. 证明：若G不连通，则其补图G&apos;连通
+19. 证明：若G连通并且G的每个顶点的度都是偶数，则对任意v∈V(G)，均有w(G-v)&lt;=d(v)成立
+</code></pre><h2 id="第十五章：欧拉图与哈密顿图"><a href="#第十五章：欧拉图与哈密顿图" class="headerlink" title="第十五章：欧拉图与哈密顿图"></a>第十五章：欧拉图与哈密顿图</h2><pre><code>1. 欧拉图：无向图G为欧拉图，当且仅当其没有奇度的顶点
+2. 哈密顿图：
+充分条件：当任意不相邻顶点满足：d(u)+d(v)&gt;=n则为哈密顿图
+必要条件：若为哈密度图，则必有w(G-V)&lt;=|V|
+5. 完全图Kn中有(n-1)!条不同的哈密顿回路
+6. 在k个长度大于等于3的圈构成的图中，再加上k条新的边即可构成欧拉图
+7. 设G是恰好含有2k（k&gt;=1）个奇度顶点的无向连通图，证明G中存在k条边不重的简单通路L1,L2,….Lk使得E(G)=∪E(Li)(数学归纳法，见书，任取两个奇度点使用归纳假设)
+8.  说明当边数m=(n-1)(n-2)/2+1时，图不一定是哈密顿图（取一个Kn-1，再在外面放一个点和其完全图中任意一个点相连）
+9. 设G为无向图，C为G中的一个圈，若从C上删除任何一条边后，C中剩下的边构成的路径都是G中的最长路径，证明：C为G中的哈密顿回路（只需要证明所有的点都在这个圈上面）
+10. 只有含有闭欧拉迹的图才叫欧拉图，否则不叫欧拉图
+</code></pre><h2 id="第十六章：树"><a href="#第十六章：树" class="headerlink" title="第十六章：树"></a>第十六章：树</h2><pre><code>1. 如果e为无向连通图G中的一条边，e在任何生成树中，则e为桥，如果e不在任何生成树中，则e为环
+2. 设T为k+1阶无向树，k&gt;=1，G为无向简单图，已知smalldelta(G)&gt;=k，证明：G中存在与T同构的子图（数学归纳法，取树中的悬挂点去掉后使用归纳假设）
+3. 设T1,T2为无向树T的子图，并且都是树，又有E(T1)∩E(T2)≠∅，证明：导出子图G(E(T1)∩E(T2))也是树。（已知没有圈，只用证明是联通的，在T上任意取两个点u,v即可）
+4. 设G为n(n&gt;=5)阶简单图，证明G或者其补图必含有圈
+</code></pre><h2 id="第十七章：平面图"><a href="#第十七章：平面图" class="headerlink" title="第十七章：平面图"></a>第十七章：平面图</h2><pre><code>1. 定义：设G是一个平面图，如果G的任何两边不在顶点之外相交，那么称为平面图
+2. 对于平面图G，有∑deg(R)=2e(G)其中R为G的面
+3. 欧拉公式：p-q+r=2（p为顶点数，q为边数，r为面数）
+4. 设G为p阶平面图，且其每个面次数至少为n，则q=e(G)&lt;=(p-2)n/(n-2)
+5. 根据上面的公式可以知道，K5不是平面图，K3,3也不是平面图
+6. 正多面体只有五种：4、6、8、12、20
+7. 设图G中e=uv为一条边，删去边uv，引入新的顶点w再连接uw和vw，称为引入2度顶点，反之，则为消去二度顶点，如果对G进行若干次引入或者消去二度顶点后得到H，那么就说G、H同胚
+8. 无向图G为平面图&lt;--&gt;它不含同胚于K5或K3,3的子图
+9. 推论：设G为简单平面图，有m&lt;=3n-6（m为边数，n为点数）
+</code></pre>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>Donate comment here</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/upload/wechatpay.png" alt="Jason Lee WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/upload/alipay.jpg" alt="Jason Lee Alipay">
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Math/" rel="tag"># Math</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/05/02/LeetCode61/" rel="next" title="61. Rotate List">
+                <i class="fa fa-chevron-left"></i> 61. Rotate List
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/05/03/lc67/" rel="prev" title="67. Add Binary">
+                67. Add Binary <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/upload/195206.jpg" alt="Jason Lee">
+            
+              <p class="site-author-name" itemprop="name">Jason Lee</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">55</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">39</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/Jason003" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:jl5501@columbia.edu" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.zhihu.com/people/long-juan-feng-98-88" target="_blank" title="知乎">
+                      
+                        <i class="fa fa-fw fa-globe"></i>知乎</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#第十四章：图的基本概念"><span class="nav-number">1.</span> <span class="nav-text">第十四章：图的基本概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第十五章：欧拉图与哈密顿图"><span class="nav-number">2.</span> <span class="nav-text">第十五章：欧拉图与哈密顿图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第十六章：树"><span class="nav-number">3.</span> <span class="nav-text">第十六章：树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第十七章：平面图"><span class="nav-number">4.</span> <span class="nav-text">第十七章：平面图</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jason Lee</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://Jason.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://yoursite.com/2018/05/02/discrete mathematics mid/';
+          this.page.identifier = '2018/05/02/discrete mathematics mid/';
+          this.page.title = 'Discrete Mathematics-mid term';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://Jason.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

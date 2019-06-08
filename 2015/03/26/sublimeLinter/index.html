@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+
+
+
+
+<html class="theme-next mist" lang>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Sublime jshint csslint,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="本文我将讲述一下 SublimeLinter 的安装过程。其组件 jshint 的安装与使用。其组件 csslint 的安装与使用。我将基于 Sublime Text 3 来安装。使用 Sublime Text 2 的用户阅读本文是没有帮助的。 SublimeLinter 是 Sublime 的插件，它的作用是检查代码语法是否有错误，并提示。习惯了 IDE 下写代码的人一定需要一款在 Sublim">
+<meta name="keywords" content="Sublime jshint csslint">
+<meta property="og:type" content="article">
+<meta property="og:title" content="代码校验工具 SublimeLinter 的安装与使用">
+<meta property="og:url" content="http://yoursite.com/2015/03/26/sublimeLinter/index.html">
+<meta property="og:site_name" content="JL">
+<meta property="og:description" content="本文我将讲述一下 SublimeLinter 的安装过程。其组件 jshint 的安装与使用。其组件 csslint 的安装与使用。我将基于 Sublime Text 3 来安装。使用 Sublime Text 2 的用户阅读本文是没有帮助的。 SublimeLinter 是 Sublime 的插件，它的作用是检查代码语法是否有错误，并提示。习惯了 IDE 下写代码的人一定需要一款在 Sublim">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://7q5cdt.com1.z0.glb.clouddn.com/SublimeLinter-sublimeLinter.jpg">
+<meta property="og:image" content="http://7q5cdt.com1.z0.glb.clouddn.com/SublimeLinter-jshint.jpg">
+<meta property="og:image" content="http://7q5cdt.com1.z0.glb.clouddn.com/SublimeLinter-jshint-test.jpg">
+<meta property="og:image" content="http://7q5cdt.com1.z0.glb.clouddn.com/SublimeLinter-jshint-test2.jpg">
+<meta property="og:image" content="http://7q5cdt.com1.z0.glb.clouddn.com/SublimeLinter-csslint.jpg">
+<meta property="og:image" content="http://7q5cdt.com1.z0.glb.clouddn.com/SublimeLinter-csslint-test.jpg">
+<meta property="og:image" content="http://7q5cdt.com1.z0.glb.clouddn.com/SublimeLinter-csslint-test2.jpg">
+<meta property="og:updated_time" content="2019-04-22T05:27:26.403Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="代码校验工具 SublimeLinter 的安装与使用">
+<meta name="twitter:description" content="本文我将讲述一下 SublimeLinter 的安装过程。其组件 jshint 的安装与使用。其组件 csslint 的安装与使用。我将基于 Sublime Text 3 来安装。使用 Sublime Text 2 的用户阅读本文是没有帮助的。 SublimeLinter 是 Sublime 的插件，它的作用是检查代码语法是否有错误，并提示。习惯了 IDE 下写代码的人一定需要一款在 Sublim">
+<meta name="twitter:image" content="http://7q5cdt.com1.z0.glb.clouddn.com/SublimeLinter-sublimeLinter.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2015/03/26/sublimeLinter/">
+
+
+
+
+
+  <title>代码校验工具 SublimeLinter 的安装与使用 | JL</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">JL</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Jason Lee's Blog</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/03/26/sublimeLinter/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jason Lee">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/upload/195206.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JL">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">代码校验工具 SublimeLinter 的安装与使用</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-03-26T15:14:54+08:00">
+                2015-03-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Sublime/" itemprop="url" rel="index">
+                    <span itemprop="name">Sublime</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2015/03/26/sublimeLinter/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/03/26/sublimeLinter/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>本文我将讲述一下 SublimeLinter 的安装过程。其组件 jshint 的安装与使用。其组件 csslint 的安装与使用。我将基于 <a href="http://sublimetext.com/3" target="_blank" rel="noopener">Sublime Text 3</a> 来安装。使用 Sublime Text 2 的用户阅读本文是没有帮助的。</p>
+<p>SublimeLinter 是 Sublime 的插件，它的作用是检查代码语法是否有错误，并提示。习惯了 IDE 下写代码的人一定需要一款在 Sublime 上类似的语法检查工具。下面我们开始。   </p>
+<h2 id="安装-SublimeLinter"><a href="#安装-SublimeLinter" class="headerlink" title="安装 SublimeLinter"></a>安装 SublimeLinter</h2><p>如同其他插件一样使用 Package Control 来安装。   </p>
+<ol>
+<li>按下 <code>Ctrl+Shift+p</code> 进入 Command Palette   </li>
+<li>输入<code>install</code>进入 Package Control: Install Package   </li>
+<li>输入<code>SublimeLinter</code>。进行安装.   </li>
+</ol>
+<p><img src="http://7q5cdt.com1.z0.glb.clouddn.com/SublimeLinter-sublimeLinter.jpg" alt="SublimeLinter">   </p>
+<p>安装完成后可以看到这样一段话：   </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">Welcome to SublimeLinter, a linter framework for Sublime Text 3.</span><br><span class="line"></span><br><span class="line">                  * * * IMPORTANT! * * *</span><br><span class="line"></span><br><span class="line">         SublimeLinter 3 is NOT a drop-in replacement for</span><br><span class="line">        earlier versions.</span><br><span class="line"></span><br><span class="line">         Linters *NOT* included with SublimeLinter 3,</span><br><span class="line">         they must be installed separately.</span><br><span class="line"></span><br><span class="line">         The settings are different.</span><br><span class="line"></span><br><span class="line">                 * * * READ THE DOCS! * * *</span><br><span class="line"></span><br><span class="line"> Otherwise you will never know how to install linters, nor will</span><br><span class="line"> you know about all of the great new features in SublimeLinter 3.</span><br><span class="line"></span><br><span class="line"> For complete documentation on how to install and use SublimeLinter,</span><br><span class="line"> please see:</span><br><span class="line"></span><br><span class="line"> http://www.sublimelinter.com</span><br></pre></td></tr></table></figure>
+<p>可以看到具体的 Linters 组件<strong>不</strong>被包含在 SublimeLinter 3 中，所以我们要额外独立安装组件。<br>可以针对不同的语言安装不同的组件。   </p>
+<h2 id="JavaScript-语法检查"><a href="#JavaScript-语法检查" class="headerlink" title="JavaScript 语法检查"></a>JavaScript 语法检查</h2><p>SublimeLinter-jshint 是基于 nodeJS 下的 jshint 的插件，实际上 SublimeLinter-jshint 调用了 nodeJS 中 jshint 的接口来进行语法检查的。   </p>
+<hr>
+<h3 id="安装-SublimeLinter-jshint"><a href="#安装-SublimeLinter-jshint" class="headerlink" title="安装 SublimeLinter-jshint"></a>安装 SublimeLinter-jshint</h3><p>为了让 JavaScript 代码有语法检查，我们安装 SublimeLinter-jshint<br>同样的方法，我们安装 SublimeLinter-jshint    </p>
+<ol>
+<li>按下 <code>Ctrl+Shift+p</code> 进入 Command Palette   </li>
+<li>输入<code>install</code>进入 Package Control: Install Package   </li>
+<li>输入<code>SublimeLinter-jshint</code>。进行安装.   </li>
+</ol>
+<p>如下图   </p>
+<p><img src="http://7q5cdt.com1.z0.glb.clouddn.com/SublimeLinter-jshint.jpg" alt="SublimeLinter-jshint">   </p>
+<p>安装完成后我们可以看到下面的一段话   </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">SublimeLinter-jshint</span><br><span class="line">  -------------------------------</span><br><span class="line">  This linter plugin for SublimeLinter provides an interface to jshint.</span><br><span class="line"></span><br><span class="line">  ** IMPORTANT! **</span><br><span class="line"></span><br><span class="line">  Before this plugin will activate, you *must*</span><br><span class="line">  follow the installation instructions here:</span><br><span class="line"></span><br><span class="line">  https://github.com/SublimeLinter/SublimeLinter-jshint</span><br></pre></td></tr></table></figure>
+<h3 id="安装-nodeJS-和-jshint"><a href="#安装-nodeJS-和-jshint" class="headerlink" title="安装 nodeJS 和 jshint"></a>安装 nodeJS 和 jshint</h3><p>在插件开始工作之前，我们必须再看一下上述插件的<a href="https://github.com/SublimeLinter/SublimeLinter-jshint" target="_blank" rel="noopener">安装说明</a><br>通过 <a href="https://github.com/SublimeLinter/SublimeLinter-jshint" target="_blank" rel="noopener">SublimeLinter-jshint 的说明</a> 我们可以看到，这个组件依赖于 nodeJS 下的 jshint，所以我们安装 nodeJS 环境和 nodeJS 下的 jshint。   </p>
+<ol>
+<li>安装 <a href="https://nodejs.org/" target="_blank" rel="noopener">Node.js</a>   </li>
+<li>通过 npm 安装<code>jshint</code>   </li>
+</ol>
+<p>在命令行下输入如下代码，完成安装   </p>
+<pre><code>npm install -g jshint
+</code></pre><p>安装完成后命令行中出现如下的信息   </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\Administrator\AppData\Roaming\npm\jshint -&gt; C:\Users\Administrator\AppData\Roaming\npm\node_modules\jshint\bin\jshint</span><br><span class="line">jshint@2.6.3 C:\Users\Administrator\AppData\Roaming\npm\node_modules\jshint</span><br><span class="line">├── strip-json-comments@1.0.2</span><br><span class="line">├── underscore@1.6.0</span><br><span class="line">├── exit@0.1.2</span><br><span class="line">├── shelljs@0.3.0</span><br><span class="line">├── console-browserify@1.1.0 (date-now@0.1.4)</span><br><span class="line">├── htmlparser2@3.8.2 (domelementtype@1.3.0, entities@1.0.0, domhandler@2.3.0, readable-stream@1.1.13, domutils@1.5.1)</span><br><span class="line">├── minimatch@1.0.0 (sigmund@1.0.0, lru-cache@2.5.0)</span><br><span class="line">└── cli@0.6.6 (glob@3.2.11)</span><br></pre></td></tr></table></figure>
+<p>可以查看 jshint 版本，已确认安装完成。  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\Administrator&gt;jshint -v</span><br><span class="line">jshint v2.6.3</span><br></pre></td></tr></table></figure>
+<p>现在，恭喜你，我们使用 Sublime 编辑 JavaScript 文件，就会有语法检查了！   </p>
+<p>在编辑过程中，会有如下提示   </p>
+<p><img src="http://7q5cdt.com1.z0.glb.clouddn.com/SublimeLinter-jshint-test.jpg" alt="SublimeLinter-jshint-test"></p>
+<p>点击提示点后，Sublime 状态栏也会有相应的说明   </p>
+<p><img src="http://7q5cdt.com1.z0.glb.clouddn.com/SublimeLinter-jshint-test2.jpg" alt="SublimeLinter-jshint-test2"></p>
+<h2 id="css-语法检查"><a href="#css-语法检查" class="headerlink" title="css 语法检查"></a>css 语法检查</h2><p>与 jshint 同理，SublimeLinter-csslint 也是基于 nodeJS 下的 csslint 的插件，实际上 SublimeLinter-csslint 调用了 nodeJS 中 csslint 的接口来进行语法检查的。   </p>
+<hr>
+<h3 id="安装-SublimeLinter-csslint"><a href="#安装-SublimeLinter-csslint" class="headerlink" title="安装 SublimeLinter-csslint"></a>安装 SublimeLinter-csslint</h3><p>同样的方法。   </p>
+<ol>
+<li>按下 <code>Ctrl+Shift+p</code> 进入 Command Palette   </li>
+<li>输入<code>install</code>进入 Package Control: Install Package   </li>
+<li>输入<code>SublimeLinter-csslint</code>。进行安装.   </li>
+</ol>
+<p>如下图   </p>
+<p><img src="http://7q5cdt.com1.z0.glb.clouddn.com/SublimeLinter-csslint.jpg" alt="SublimeLinter-csslint">   </p>
+<p>安装完成后我们可以看到下面的一段话   </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">SublimeLinter-csslint</span><br><span class="line">-------------------------------</span><br><span class="line">This linter plugin for SublimeLinter provides an interface to csslint.</span><br><span class="line"></span><br><span class="line">** IMPORTANT! **</span><br><span class="line"></span><br><span class="line">Before this plugin will activate, you *must*</span><br><span class="line">follow the installation instructions here:</span><br><span class="line"></span><br><span class="line">https://github.com/SublimeLinter/SublimeLinter-csslint</span><br></pre></td></tr></table></figure>
+<p>在使用插件之前，必须遵循上述网址中的<a href="https://github.com/SublimeLinter/SublimeLinter-csslint" target="_blank" rel="noopener">安装说明</a>   </p>
+<h3 id="在-nodeJS-下安装-csslint"><a href="#在-nodeJS-下安装-csslint" class="headerlink" title="在 nodeJS 下安装 csslint"></a>在 nodeJS 下安装 csslint</h3><p>进入上述的 GitHub 地址，csslint 的说明页。我们知道了和 jshint 一样，csslint 也是基于 nodeJS 下的 csslint 来使用的。   </p>
+<p>这里安装 nodeJS 过程省略。<br>只需用 npm 安装 csslint 即可。   </p>
+<p>在命令行中输入     </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g csslint</span><br></pre></td></tr></table></figure>
+<p>安装完成后命令行中出现如下的信息     </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\Administrator\AppData\Roaming\npm\csslint -&gt; C:\Users\Administrator\AppData\Roaming\npm\node_modules\csslint\cli.js</span><br><span class="line">csslint@0.10.0 C:\Users\Administrator\AppData\Roaming\npm\node_modules\csslint</span><br><span class="line">└── parserlib@0.2.5</span><br></pre></td></tr></table></figure>
+<p>可以查看 csslint 版本，已确认安装完成。   </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\Administrator&gt;csslint --version</span><br><span class="line">v0.10.0</span><br></pre></td></tr></table></figure>
+<p>现在，恭喜你，我们使用 Sublime 编辑 css 文件，就会有语法检查了！     </p>
+<p>在编辑过程中，会有如下提示   </p>
+<p><img src="http://7q5cdt.com1.z0.glb.clouddn.com/SublimeLinter-csslint-test.jpg" alt="SublimeLinter-csslint-test"></p>
+<p>点击提示点后，Sublime 状态栏也会有相应的说明   </p>
+<p><img src="http://7q5cdt.com1.z0.glb.clouddn.com/SublimeLinter-csslint-test2.jpg" alt="SublimeLinter-csslint-test2"></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>Donate comment here</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/upload/wechatpay.png" alt="Jason Lee WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/upload/alipay.jpg" alt="Jason Lee Alipay">
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Sublime-jshint-csslint/" rel="tag"># Sublime jshint csslint</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/03/21/teach-girlfriend-html-css/" rel="next" title="Teach Girlfriend to make a Web Pages like Zhihu">
+                <i class="fa fa-chevron-left"></i> Teach Girlfriend to make a Web Pages like Zhihu
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/04/06/arrays-similar/" rel="prev" title="判断两个数组是否相似 (arraysSimilar)">
+                判断两个数组是否相似 (arraysSimilar) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/upload/195206.jpg" alt="Jason Lee">
+            
+              <p class="site-author-name" itemprop="name">Jason Lee</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">55</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">39</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/Jason003" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:jl5501@columbia.edu" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.zhihu.com/people/long-juan-feng-98-88" target="_blank" title="知乎">
+                      
+                        <i class="fa fa-fw fa-globe"></i>知乎</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装-SublimeLinter"><span class="nav-number">1.</span> <span class="nav-text">安装 SublimeLinter</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JavaScript-语法检查"><span class="nav-number">2.</span> <span class="nav-text">JavaScript 语法检查</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装-SublimeLinter-jshint"><span class="nav-number">2.1.</span> <span class="nav-text">安装 SublimeLinter-jshint</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装-nodeJS-和-jshint"><span class="nav-number">2.2.</span> <span class="nav-text">安装 nodeJS 和 jshint</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#css-语法检查"><span class="nav-number">3.</span> <span class="nav-text">css 语法检查</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装-SublimeLinter-csslint"><span class="nav-number">3.1.</span> <span class="nav-text">安装 SublimeLinter-csslint</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在-nodeJS-下安装-csslint"><span class="nav-number">3.2.</span> <span class="nav-text">在 nodeJS 下安装 csslint</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jason Lee</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://Jason.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://yoursite.com/2015/03/26/sublimeLinter/';
+          this.page.identifier = '2015/03/26/sublimeLinter/';
+          this.page.title = '代码校验工具 SublimeLinter 的安装与使用';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://Jason.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,1272 @@
+<!DOCTYPE html>
+
+
+
+
+<html class="theme-next mist" lang>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="JavaScript HTML CSS Sass 移动端 XSS AMD requireJS CommonJS 性能优化 WebApp,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="content{:toc}   往前推2到3年，前端工程师还在忧心忡忡地想，移动互联网时代下，前端是不是没有生存空间了。但今天一看，在我们团队，前端工程师超过一半的工作都是在做移动端的Web或者APP的开发。移动Web或者APP在技术本质上是和做桌面端Web没有本质区别，但是移动端的坑那是非常的多，通过学习这部分内容，让你成为一名桌面移动通吃的前端开发工程师。  概念 参考： 移动 Web 开发">
+<meta name="keywords" content="JavaScript HTML CSS Sass 移动端 XSS AMD requireJS CommonJS 性能优化 WebApp">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Web App 相关技术">
+<meta property="og:url" content="http://yoursite.com/2015/06/17/web-app/index.html">
+<meta property="og:site_name" content="JL">
+<meta property="og:description" content="content{:toc}   往前推2到3年，前端工程师还在忧心忡忡地想，移动互联网时代下，前端是不是没有生存空间了。但今天一看，在我们团队，前端工程师超过一半的工作都是在做移动端的Web或者APP的开发。移动Web或者APP在技术本质上是和做桌面端Web没有本质区别，但是移动端的坑那是非常的多，通过学习这部分内容，让你成为一名桌面移动通吃的前端开发工程师。  概念 参考： 移动 Web 开发">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://7q5cdt.com1.z0.glb.clouddn.com/task4-code-todoWebApp.png">
+<meta property="og:updated_time" content="2017-12-13T15:25:35.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Web App 相关技术">
+<meta name="twitter:description" content="content{:toc}   往前推2到3年，前端工程师还在忧心忡忡地想，移动互联网时代下，前端是不是没有生存空间了。但今天一看，在我们团队，前端工程师超过一半的工作都是在做移动端的Web或者APP的开发。移动Web或者APP在技术本质上是和做桌面端Web没有本质区别，但是移动端的坑那是非常的多，通过学习这部分内容，让你成为一名桌面移动通吃的前端开发工程师。  概念 参考： 移动 Web 开发">
+<meta name="twitter:image" content="http://7q5cdt.com1.z0.glb.clouddn.com/task4-code-todoWebApp.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2015/06/17/web-app/">
+
+
+
+
+
+  <title>Web App 相关技术 | JL</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">JL</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Jason Lee's Blog</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/06/17/web-app/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jason Lee">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/upload/195206.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JL">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Web App 相关技术</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-06-17T14:06:05+08:00">
+                2015-06-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2015/06/17/web-app/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/06/17/web-app/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <ul>
+<li>content<br>{:toc}</li>
+</ul>
+<blockquote>
+<p>往前推2到3年，前端工程师还在忧心忡忡地想，移动互联网时代下，前端是不是没有生存空间了。但今天一看，在我们团队，前端工程师超过一半的工作都是在做移动端的Web或者APP的开发。移动Web或者APP在技术本质上是和做桌面端Web没有本质区别，但是移动端的坑那是非常的多，通过学习这部分内容，让你成为一名桌面移动通吃的前端开发工程师。</p>
+</blockquote>
+<h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><ul>
+<li>参考： <a href="http://junmer.github.io/mobile-dev-get-started/" target="_blank" rel="noopener">移动 Web 开发入门</a></li>
+</ul>
+<p>上面这个 slide 资料讲的非常好，算是一个入门的介绍吧。带我们建立基本的移动 web 开发知识体系和常见问题的实践。包含以下几个方面：</p>
+<ul>
+<li><p>基本概念</p>
+<ul>
+<li><p>Native</p>
+<p>  本地应用 使用 Java \ Objective-C \ Swift 开发</p>
+</li>
+<li><p>WebApp</p>
+<p>  网页应用 html5 开发</p>
+</li>
+<li><p>Hybrid</p>
+<p>  混合应用 ooxx(native, web)</p>
+</li>
+<li><p>对比</p>
+</li>
+</ul>
+</li>
+<li><p>视觉</p>
+<ul>
+<li>设备的像素</li>
+<li>文字单位使用 rem</li>
+<li>viewport 属性</li>
+<li>横屏竖屏</li>
+<li>Flex 伸缩布局</li>
+<li>响应式设计</li>
+<li>软键盘</li>
+<li>隐藏地址栏</li>
+<li>苹果设备添加到主屏图标</li>
+</ul>
+</li>
+<li>交互<ul>
+<li>Touch</li>
+<li>click 延迟</li>
+<li>Scroll</li>
+<li>Gestures(hammer –A javascript library for multi-touch gestures)</li>
+<li>手指友好设计</li>
+<li>HTML5 APIS（图像，摇动，声音等）</li>
+</ul>
+</li>
+<li>实践<ul>
+<li>屏蔽点击元素时的阴影</li>
+<li>图像（像素、矢量图标、base64 减少请求、lazyload）</li>
+<li>CSS3（合理使用渐变/圆角/阴影、代替 js 动画、translate3d、解决动画闪烁）</li>
+<li>localStorage</li>
+<li>避免（iframe、fixed + input）</li>
+<li>SPA 或 Multi page</li>
+<li>can I use</li>
+<li>压缩合并</li>
+<li>@G/3G 下建立连接时间</li>
+</ul>
+</li>
+<li><p>调试</p>
+<ul>
+<li>浏览器自己的调试工具，模拟手机设备</li>
+<li><p>weinre</p>
+<p>  关于 weinre 我写了一篇博客介绍它。<a href="http://gaohaoyang.github.io/2015/06/18/weinre/" target="_blank" rel="noopener">Weinre –WebApp 调试工具</a></p>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="head-标签"><a href="#head-标签" class="headerlink" title="head 标签"></a>head 标签</h2><p>参考：</p>
+<ul>
+<li><a href="http://www.css88.com/archives/5480" target="_blank" rel="noopener">移动前端不得不了解的html5 head 头标签</a></li>
+</ul>
+<p>上面的链接详细的讲解了：</p>
+<ul>
+<li>DOCTYPE</li>
+<li>charset</li>
+<li>lang属性</li>
+<li>优先使用 IE 最新版本和 Chrome</li>
+<li>360 使用Google Chrome Frame</li>
+<li>SEO 优化部分：页面标题<title>标签(head 头部必须)，页面关键词 keywords，页面描述内容 description，定义网页作者 author，网页搜索引擎索引方式</title></li>
+<li><p>为移动设备添加 viewport</p>
+<p>  <code>viewport</code> 可以让布局在移动浏览器上显示的更好。 通常会写</p>
+</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span> =<span class="string">"viewport"</span> <span class="attr">content</span> =<span class="string">"initial-scale=1, maximum-scale=3, minimum-scale=1, user-scalable=no"</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- `width=device-width` 会导致 iPhone 5 添加到主屏后以 WebApp 全屏模式打开页面时出现黑边 http://bigc.at/ios-webapp-viewport-meta.orz --&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>content 参数：</p>
+<ul>
+<li>width viewport 宽度(数值/device-width)</li>
+<li>height viewport 高度(数值/device-height)</li>
+<li>initial-scale 初始缩放比例</li>
+<li>maximum-scale 最大缩放比例</li>
+<li>minimum-scale 最小缩放比例</li>
+<li>user-scalable 是否允许用户缩放(yes/no)</li>
+</ul>
+</li>
+<li><p>ios 设备，iOS 图标，Android，Windows 8</p>
+</li>
+</ul>
+<p><strong>总结：</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span> <span class="comment">&lt;!-- 使用 HTML5 doctype，不区分大小写 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"zh-cmn-Hans"</span>&gt;</span> <span class="comment">&lt;!-- 更加标准的 lang 属性写法 http://zhi.hu/XyIa --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 声明文档使用的字符编码 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">'utf-8'</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 优先使用 IE 最新版本和 Chrome --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"X-UA-Compatible"</span> <span class="attr">content</span>=<span class="string">"IE=edge,chrome=1"</span>/&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 页面描述 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"description"</span> <span class="attr">content</span>=<span class="string">"不超过150个字符"</span>/&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 页面关键词 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"keywords"</span> <span class="attr">content</span>=<span class="string">""</span>/&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 网页作者 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"author"</span> <span class="attr">content</span>=<span class="string">"name, email@gmail.com"</span>/&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 搜索引擎抓取 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"robots"</span> <span class="attr">content</span>=<span class="string">"index,follow"</span>/&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 为移动设备添加 viewport --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"initial-scale=1, maximum-scale=3, minimum-scale=1, user-scalable=no"</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- `width=device-width` 会导致 iPhone 5 添加到主屏后以 WebApp 全屏模式打开页面时出现黑边 http://bigc.at/ios-webapp-viewport-meta.orz --&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- iOS 设备 begin --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"apple-mobile-web-app-title"</span> <span class="attr">content</span>=<span class="string">"标题"</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 添加到主屏后的标题（iOS 6 新增） --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"apple-mobile-web-app-capable"</span> <span class="attr">content</span>=<span class="string">"yes"</span>/&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 是否启用 WebApp 全屏模式，删除苹果默认的工具栏和菜单栏 --&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"apple-itunes-app"</span> <span class="attr">content</span>=<span class="string">"app-id=myAppStoreID, affiliate-data=myAffiliateData, app-argument=myURL"</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 添加智能 App 广告条 Smart App Banner（iOS 6+ Safari） --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"apple-mobile-web-app-status-bar-style"</span> <span class="attr">content</span>=<span class="string">"black"</span>/&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 设置苹果工具栏颜色 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"format-detection"</span> <span class="attr">content</span>=<span class="string">"telphone=no, email=no"</span>/&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 忽略页面中的数字识别为电话，忽略email识别 --&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 启用360浏览器的极速模式(webkit) --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"renderer"</span> <span class="attr">content</span>=<span class="string">"webkit"</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 避免IE使用兼容模式 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"X-UA-Compatible"</span> <span class="attr">content</span>=<span class="string">"IE=edge"</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 针对手持设备优化，主要是针对一些老的不识别viewport的浏览器，比如黑莓 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"HandheldFriendly"</span> <span class="attr">content</span>=<span class="string">"true"</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 微软的老式浏览器 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"MobileOptimized"</span> <span class="attr">content</span>=<span class="string">"320"</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- uc强制竖屏 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"screen-orientation"</span> <span class="attr">content</span>=<span class="string">"portrait"</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- QQ强制竖屏 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"x5-orientation"</span> <span class="attr">content</span>=<span class="string">"portrait"</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- UC强制全屏 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"full-screen"</span> <span class="attr">content</span>=<span class="string">"yes"</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- QQ强制全屏 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"x5-fullscreen"</span> <span class="attr">content</span>=<span class="string">"true"</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- UC应用模式 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"browsermode"</span> <span class="attr">content</span>=<span class="string">"application"</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- QQ应用模式 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"x5-page-mode"</span> <span class="attr">content</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- windows phone 点击无高光 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"msapplication-tap-highlight"</span> <span class="attr">content</span>=<span class="string">"no"</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- iOS 图标 begin --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"apple-touch-icon-precomposed"</span> <span class="attr">href</span>=<span class="string">"/apple-touch-icon-57x57-precomposed.png"</span>/&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- iPhone 和 iTouch，默认 57x57 像素，必须有 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"apple-touch-icon-precomposed"</span> <span class="attr">sizes</span>=<span class="string">"114x114"</span> <span class="attr">href</span>=<span class="string">"/apple-touch-icon-114x114-precomposed.png"</span>/&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- Retina iPhone 和 Retina iTouch，114x114 像素，可以没有，但推荐有 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"apple-touch-icon-precomposed"</span> <span class="attr">sizes</span>=<span class="string">"144x144"</span> <span class="attr">href</span>=<span class="string">"/apple-touch-icon-144x144-precomposed.png"</span>/&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- Retina iPad，144x144 像素，可以没有，但推荐有 --&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- iOS 图标 end --&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- iOS 启动画面 begin --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"apple-touch-startup-image"</span> <span class="attr">sizes</span>=<span class="string">"768x1004"</span> <span class="attr">href</span>=<span class="string">"/splash-screen-768x1004.png"</span>/&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- iPad 竖屏 768 x 1004（标准分辨率） --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"apple-touch-startup-image"</span> <span class="attr">sizes</span>=<span class="string">"1536x2008"</span> <span class="attr">href</span>=<span class="string">"/splash-screen-1536x2008.png"</span>/&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- iPad 竖屏 1536x2008（Retina） --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"apple-touch-startup-image"</span> <span class="attr">sizes</span>=<span class="string">"1024x748"</span> <span class="attr">href</span>=<span class="string">"/Default-Portrait-1024x748.png"</span>/&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- iPad 横屏 1024x748（标准分辨率） --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"apple-touch-startup-image"</span> <span class="attr">sizes</span>=<span class="string">"2048x1496"</span> <span class="attr">href</span>=<span class="string">"/splash-screen-2048x1496.png"</span>/&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- iPad 横屏 2048x1496（Retina） --&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"apple-touch-startup-image"</span> <span class="attr">href</span>=<span class="string">"/splash-screen-320x480.png"</span>/&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- iPhone/iPod Touch 竖屏 320x480 (标准分辨率) --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"apple-touch-startup-image"</span> <span class="attr">sizes</span>=<span class="string">"640x960"</span> <span class="attr">href</span>=<span class="string">"/splash-screen-640x960.png"</span>/&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- iPhone/iPod Touch 竖屏 640x960 (Retina) --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"apple-touch-startup-image"</span> <span class="attr">sizes</span>=<span class="string">"640x1136"</span> <span class="attr">href</span>=<span class="string">"/splash-screen-640x1136.png"</span>/&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- iPhone 5/iPod Touch 5 竖屏 640x1136 (Retina) --&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- iOS 启动画面 end --&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- iOS 设备 end --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"msapplication-TileColor"</span> <span class="attr">content</span>=<span class="string">"#000"</span>/&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- Windows 8 磁贴颜色 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"msapplication-TileImage"</span> <span class="attr">content</span>=<span class="string">"icon.png"</span>/&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- Windows 8 磁贴图标 --&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"alternate"</span> <span class="attr">type</span>=<span class="string">"application/rss+xml"</span> <span class="attr">title</span>=<span class="string">"RSS"</span> <span class="attr">href</span>=<span class="string">"/rss.xml"</span>/&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 添加 RSS 订阅 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"shortcut icon"</span> <span class="attr">type</span>=<span class="string">"image/ico"</span> <span class="attr">href</span>=<span class="string">"/favicon.ico"</span>/&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 添加 favicon icon --&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>标题<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="页面切换动画"><a href="#页面切换动画" class="headerlink" title="页面切换动画"></a>页面切换动画</h2><ul>
+<li><a href="http://www.w3cplus.com/mobile/mobile-terminal-refactoring-slider.html" target="_blank" rel="noopener">移动端重构系列13——页面切换</a></li>
+<li><a href="http://www.w3cplus.com/css3/css3-3d-transform.html" target="_blank" rel="noopener">CSS3 3D Transform</a></li>
+</ul>
+<p>关于 HammerJS 的一个中文文档</p>
+<ul>
+<li><a href="http://www.cnblogs.com/iamlilinfeng/p/4239957.html" target="_blank" rel="noopener">Hammer.js</a></li>
+</ul>
+<hr>
+<h2 id="CSS-Processing"><a href="#CSS-Processing" class="headerlink" title="CSS Processing"></a>CSS Processing</h2><blockquote>
+<p>CSS语言由于其自身语言设计的问题，加上一些浏览器兼容性问题，往往会使得我们在写它的时候，要写很多冗余代码，或者为了兼容性对同一个样式设定写好几遍。针对这些问题，诞生了CSS预处理和后处理的概念及相关方法、工具。</p>
+<p>这些工具和方法帮助我们能够更加高效地书写可维护性更强的CSS代码。</p>
+</blockquote>
+<p>这里我尝试使用了 Sass，果然很好用。下面记录几个 sass 教程。</p>
+<ul>
+<li><a href="http://www.w3cplus.com/sassguide/" target="_blank" rel="noopener">Sass入门-w3cplus</a></li>
+<li><a href="http://www.ruanyifeng.com/blog/2012/06/sass.html" target="_blank" rel="noopener">SASS用法指南-阮一峰</a></li>
+</ul>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>首先要有 ruby 环境。</p>
+<p>由于国内网络原因（你懂的），导致 rubygems.org 存放在 Amazon S3 上面的资源文件间歇性连接失败。这时候我们可以通过gem sources命令来配置源，先移除默认的 <a href="https://rubygems.org" target="_blank" rel="noopener">https://rubygems.org</a> 源，然后添加淘宝的源 <a href="https://ruby.taobao.org/，然后查看下当前使用的源是哪个，如果是淘宝的，则表示可以输入" target="_blank" rel="noopener">https://ruby.taobao.org/，然后查看下当前使用的源是哪个，如果是淘宝的，则表示可以输入</a> sass 安装命令 <code>gem install sass</code> 了。</p>
+<pre><code>$ gem sources --remove https://rubygems.org/
+$ gem sources -a https://ruby.taobao.org/
+$ gem sources -l
+*** CURRENT SOURCES ***
+
+https://ruby.taobao.org
+# 请确保只有 ruby.taobao.org
+$ gem install sass
+</code></pre><h3 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h3><pre><code>sass --watch style.scss:style.css --style expanded
+</code></pre><hr>
+<h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><p><strong><code>rem</code></strong></p>
+<p>字体单位使用 rem，用户在手机上设置了字体大小时，不会打破布局，造成混乱。</p>
+<ul>
+<li><a href="http://www.w3cplus.com/css3/define-font-size-with-css3-rem" target="_blank" rel="noopener">CSS3的REM设置字体大小-w3cplus</a></li>
+<li><a href="http://www.iyunlu.com/view/css-xhtml/76.html" target="_blank" rel="noopener">响应式十日谈第一日：使用 rem 设置文字大小-一丝</a></li>
+</ul>
+<hr>
+<h2 id="安全"><a href="#安全" class="headerlink" title="安全"></a>安全</h2><blockquote>
+<p>安全是大家经常容易忽视，但其实一旦出现影响会非常大的问题，尤其对于没有经历过企业开发，或者没有踩过坑的同学，如果等到公司工作，做实际项目后非常容易发生安全问题。</p>
+</blockquote>
+<h3 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h3><p>WEB基本攻击大致可以分为三大类：“资源枚举”、“参数操纵” 和 “其它攻击”</p>
+<ul>
+<li>资源枚举</li>
+<li>参数操纵<ul>
+<li>SQL注入</li>
+<li>XPath注入</li>
+<li>cgi命令执行</li>
+<li>XXS（cross-site scripting跨域脚本攻击）其重点是“跨域”和“客户端执行”<ul>
+<li>Reflected XSS ——基于反射的XSS攻击。主要依靠站点服务端返回脚本，在客户端触发执行从而发起WEB攻击。</li>
+<li>DOM-based or local XSS——基于DOM或本地的XSS攻击</li>
+<li>Stored XSS——基于存储的XSS攻击</li>
+</ul>
+</li>
+<li>会话劫持</li>
+</ul>
+</li>
+<li>其它攻击<ul>
+<li>CSRF（cross-site request forgery）跨站请求伪造</li>
+<li>钓鱼攻击指的是网站的伪造，比如ta0bao.com，然后在其中应用XSS等方式发起攻击。</li>
+<li>拒绝服务（DoS）指的是向网站发起洪水一样的请求（Traffic Floor），导致服务器超负荷并关闭，处理方法常规是采用QoS（Quality of Service）的软硬件解决方案。</li>
+</ul>
+</li>
+</ul>
+<h3 id="关于-XSS"><a href="#关于-XSS" class="headerlink" title="关于 XSS"></a>关于 XSS</h3><blockquote>
+<p><strong>跨网站脚本</strong>（Cross-site scripting，通常简称为XSS或跨站脚本或跨站脚本攻击）是一种网站应用程序的安全漏洞攻击，是代码注入的一种。它允许恶意用户将代码注入到网页上，其他用户在观看网页时就会受到影响。这类攻击通常包含了HTML以及用户端脚本语言。</p>
+<p>XSS攻击通常指的是通过利用网页开发时留下的漏洞，通过巧妙的方法注入恶意指令代码到网页，使用户加载并执行攻击者恶意制造的网页程序。这些恶意网页程序通常是JavaScript，但实际上也可以包括Java， VBScript， ActiveX， Flash 或者甚至是普通的HTML。攻击成功后，攻击者可能得到更高的权限（如执行一些操作）、私密网页内容、会话和cookie等各种内容。</p>
+<p>——维基百科</p>
+</blockquote>
+<h3 id="XSS-防护"><a href="#XSS-防护" class="headerlink" title="XSS 防护"></a>XSS 防护</h3><ol>
+<li><p>浏览器解析顺序：</p>
+<p> HTML Parser &gt;&gt; CSS Parser &gt;&gt; JavaScript Parser</p>
+</li>
+<li><p>浏览器解码顺序：</p>
+<p> HTML Decoding &gt;&gt; URL Decoding &gt;&gt; JavaScript Decoding</p>
+</li>
+<li><p>具体的防护方式：</p>
+<ul>
+<li>验证输入并且基于语境和按照正确的顺序转义不可信数据<ul>
+<li>HTML 中的字符串</li>
+<li>HTML 属性中的字符串</li>
+<li>事件句柄属性和 JavaScript 中的字符串</li>
+<li>HTML 属性中的 URL 路径</li>
+<li>HTML 风格属性和 CSS 中的字符串</li>
+<li>JavaScript 中的 HTML</li>
+</ul>
+</li>
+<li>始终遵循白名单优于黑名单的做法</li>
+<li>使用 UTF-8 为默认的字符编码以及设置 content 为 text/html</li>
+<li>不要将用户可以控制的文本放在<meta>标签前。通过使用不同的字符集注射可以导致 XSS。</li>
+<li>使用 &lt;!DOCTYPE html&gt;</li>
+<li>使用推荐的 HTTP 响应头进行 XSS 防护</li>
+<li>防止 CRLF 注入/HTTP 响应拆分</li>
+<li>禁止 TRACE 和其他非必要方法</li>
+</ul>
+</li>
+</ol>
+<p>对于 innerHTML 的方式输出的，我们可以采用如下的方式转码</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 转码 XSS 防护</span></span><br><span class="line"><span class="comment"> * @param  &#123;String&#125; str 用户输入的字符串</span></span><br><span class="line"><span class="comment"> * @return &#123;String&#125;     转码后的字符串</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">changeCode</span>(<span class="params">str</span>) </span>&#123;</span><br><span class="line">    str = str.replace(<span class="regexp">/&amp;/g</span>, <span class="string">"&amp;amp;"</span>)</span><br><span class="line">              .replace(<span class="regexp">/&lt;/g</span>, <span class="string">"&amp;lt;"</span>)</span><br><span class="line">              .replace(<span class="regexp">/&gt;/g</span>, <span class="string">"&amp;gt;"</span>)</span><br><span class="line">              .replace(<span class="regexp">/"/g</span>, <span class="string">"&amp;quot;"</span>)</span><br><span class="line">              .replace(<span class="regexp">/'/g</span>, <span class="string">"&amp;#x27;"</span>)</span><br><span class="line">              .replace(<span class="regexp">/\//g</span>, <span class="string">"&amp;#x2f;"</span>);</span><br><span class="line">    <span class="keyword">return</span> str;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<p>参考：</p>
+<ul>
+<li><a href="http://www.cnblogs.com/vajoy/p/4176908.html" target="_blank" rel="noopener">浅谈WEB安全性（前端向）</a></li>
+<li><a href="http://www.freebuf.com/articles/web/40520.html" target="_blank" rel="noopener">XSS的原理分析与解剖</a></li>
+<li><a href="http://www.fooying.com/chinese-translationthe-ultimate-xss-protection-cheatsheet-for-developers/" target="_blank" rel="noopener">原创翻译：给开发者的终极XSS防护备忘录</a></li>
+</ul>
+<hr>
+<h2 id="性能优化"><a href="#性能优化" class="headerlink" title="性能优化"></a>性能优化</h2><blockquote>
+<p>在自己做一些小项目时，可能是学校的一些网站项目，流量可能日均都不超过500，而且大多是校园局域网内访问；或者是开发一些实验室的MIS系统，这辈子你都不会去使用你开发的这个系统。在这样一些项目中，性能优化往往会被你忽略。</p>
+<p>但是如果你是做一个日均PV数万、数十万、甚至更大的量级，开发的页面会被全国各地，不同网络条件的用户来进行访问。这个时候，性能问题就无法忽视了。在当今的网络条件下，如果你的页面3秒都无法完成首屏渲染，一定会让你的网站流失很多用户。</p>
+<p>整个网站的性能优化有很多的环节和工作，大多数时候，不是前端工程师单独就能完成的，尤其在职能划分明确的公司中，往往需要前后端、运维、DBA等多个职位协同完成。所以，在我们的课程中，主要让你了解整个性能优化都涉及哪些方面的工作，同时，我们会专注介绍一些在前端领域可以重点关注的技术点。</p>
+</blockquote>
+<p>这里就是网页的打开速度，如果你的网页打开速度很慢，那么一定会有用户的流失。所以性能优化很重要。</p>
+<ul>
+<li>网页内容<ul>
+<li>减少http请求次数</li>
+<li>减少DNS查询次数</li>
+<li>避免页面跳转</li>
+<li>缓存Ajax</li>
+<li>延迟加载</li>
+<li>提前加载</li>
+<li>减少DOM元素数量</li>
+<li>根据域名划分内容</li>
+<li>减少iframe数量</li>
+<li>避免404</li>
+</ul>
+</li>
+<li>服务器<ul>
+<li>使用CDN</li>
+<li>添加Expires 或Cache-Control报文头</li>
+<li>Gzip压缩传输文件</li>
+<li>配置ETags</li>
+<li>尽早flush输出</li>
+<li>使用GET Ajax请求</li>
+<li>避免空的图片src</li>
+</ul>
+</li>
+<li>Cookie<ul>
+<li>减少Cookie大小</li>
+<li>页面内容使用无cookie域名</li>
+</ul>
+</li>
+<li>CSS<ul>
+<li>将样式表置顶</li>
+<li>避免CSS表达式</li>
+<li>用\&lt;link>代替@import</li>
+<li>避免使用Filters</li>
+</ul>
+</li>
+<li>Javascript<ul>
+<li>将脚本置底</li>
+<li>使用外部Javascirpt和CSS文件</li>
+<li>精简Javascript和CSS</li>
+<li>去除重复脚本</li>
+<li>减少DOM访问</li>
+<li>使用智能事件处理</li>
+</ul>
+</li>
+<li>图片<ul>
+<li>优化图像</li>
+<li>优化CSS Sprite</li>
+<li>不要在HTML中缩放图片</li>
+<li>使用小且可缓存的favicon.ico</li>
+</ul>
+</li>
+<li>移动客户端<ul>
+<li>保持单个内容小于25KB</li>
+<li>打包组建成符合文档</li>
+</ul>
+</li>
+</ul>
+<p>具体细节参考文章：</p>
+<ul>
+<li><a href="http://www.cnblogs.com/developersupport/p/webpage-performance-best-practices.html" target="_blank" rel="noopener">毫秒必争，前端网页性能最佳实践</a></li>
+</ul>
+<p>我在 ToDo 这个任务中主要使用了 CDN 来加载静态资源。比如我使用了 <a href="http://cdn.code.baidu.com/" target="_blank" rel="noopener">百度静态资源公共库</a>。引用了里面的 fontawesome，速度果然比在 GitHub 仓库里快很多。下一步是压缩我自己写的静态资源。</p>
+<p>其他参考资料：</p>
+<ul>
+<li><a href="http://www.oschina.net/translate/front-end-performance-for-web-designers-and-front-end-developers#section:maximising-parallelisation" target="_blank" rel="noopener">给网页设计师和前端开发者看的前端性能优化</a></li>
+<li><a href="http://www.zhangxinxu.com/wordpress/?p=3152" target="_blank" rel="noopener">梳理：提高前端性能方面的处理以及不足</a></li>
+<li><a href="http://www.cnblogs.com/mofish/archive/2010/10/12/1849062.html" target="_blank" rel="noopener">css sprite原理优缺点及使用</a></li>
+<li><a href="http://www.qianduan.net/css-sprites-useful-technique-or-potential-nuisance/" target="_blank" rel="noopener">CSS Sprites：鱼翅还是三鹿？</a></li>
+<li><a href="http://www.cnblogs.com/leefreeman/p/3998757.html" target="_blank" rel="noopener">大型网站的灵魂——性能</a></li>
+<li><a href="http://web.jobbole.com/35339/" target="_blank" rel="noopener">编写高效的 CSS 选择器</a></li>
+</ul>
+<hr>
+<h2 id="模块化"><a href="#模块化" class="headerlink" title="模块化"></a>模块化</h2><blockquote>
+<p>对于一个复杂项目，特别是多人协作的复杂项目，如何合理划分模块，如何更加方便地进行模块加载，如何管理模块之间的依赖，是一个项目团队都会面临的问题，目前业界已经有了一些较为普遍的解决方案，如AMD。这个部分希望你能够通过学习JavaScript的模块化，学习如何合理地规划项目模块，合理使用模块化工具来优化你的项目代码结构。</p>
+</blockquote>
+<p>一个模块就是实现特定功能的文件，有了模块，我们就可以更方便地使用别人的代码，想要什么功能，就加载什么模块。模块开发需要遵循一定的规范，否则就都乱套了。</p>
+<p>根据AMD规范，我们可以使用 <code>define</code> 定义模块，使用 <code>require</code> 调用模块。</p>
+<p>目前，通行的 js 模块规范主要有两种：<code>CommonJS</code> 和 <code>AMD</code>。</p>
+<h3 id="AMD规范"><a href="#AMD规范" class="headerlink" title="AMD规范"></a>AMD规范</h3><p>AMD 即 Asynchronous Module Definition，中文名是“异步模块定义”的意思。它是一个在浏览器端模块化开发的规范，服务器端的规范是 CommonJS</p>
+<p>模块将被异步加载，模块加载不影响后面语句的运行。所有依赖某些模块的语句均放置在回调函数中。</p>
+<p>AMD 是 RequireJS 在推广过程中对模块定义的规范化的产出。</p>
+<p>详细 API 如下：</p>
+<ul>
+<li><a href="https://github.com/amdjs/amdjs-api/wiki/AMD-(%E4%B8%AD%E6%96%87%E7%89%88" target="_blank" rel="noopener">AMD（中文版）</a>)</li>
+</ul>
+<hr>
+<h3 id="CommonJS规范"><a href="#CommonJS规范" class="headerlink" title="CommonJS规范"></a>CommonJS规范</h3><p>CommonJS 是服务器端模块的规范，Node.js 采用了这个规范。Node.JS 首先采用了 js 模块化的概念。</p>
+<p>根据 CommonJS 规范，一个单独的文件就是一个模块。每一个模块都是一个单独的作用域，也就是说，在该模块内部定义的变量，无法被其他模块读取，除非定义为 global 对象的属性。</p>
+<p>输出模块变量的最好方法是使用 module.exports 对象。</p>
+<hr>
+<h3 id="为什么要用-requireJS"><a href="#为什么要用-requireJS" class="headerlink" title="为什么要用 requireJS"></a>为什么要用 requireJS</h3><p>试想一下，如果一个网页有很多的js文件，那么浏览器在下载该页面的时候会先加载js文件，从而停止了网页的渲染，如果文件越多，浏览器可能失去响应。其次，要保证js文件的依赖性，依赖性最大的模块（文件）要放在最后加载，当依赖关系很复杂的时候，代码的编写和维护都会变得困难。</p>
+<p>RequireJS就是为了解决这两个问题而诞生的：</p>
+<blockquote>
+<p>（1）实现js文件的异步加载，避免网页失去响应；<br>（2）管理模块之间的依赖性，便于代码的编写和维护。</p>
+</blockquote>
+<h4 id="requireJS"><a href="#requireJS" class="headerlink" title="requireJS"></a>requireJS</h4><ul>
+<li><a href="http://requirejs.org/" target="_blank" rel="noopener">requireJS 官网</a></li>
+<li><a href="http://www.requirejs.cn/" target="_blank" rel="noopener">requireJS 中文网</a></li>
+</ul>
+<hr>
+<h3 id="AMD和CMD"><a href="#AMD和CMD" class="headerlink" title="AMD和CMD"></a>AMD和CMD</h3><p>CMD（Common Module Definition） 通用模块定义。该规范明确了模块的基本书写格式和基本交互规则。该规范是在国内发展出来的。AMD是依赖关系前置，CMD是按需加载。</p>
+<blockquote>
+<p>AMD 是 RequireJS 在推广过程中对模块定义的规范化产出。<br>CMD 是 SeaJS 在推广过程中对模块定义的规范化产出。</p>
+</blockquote>
+<ul>
+<li><a href="https://github.com/seajs/seajs/issues/242" target="_blank" rel="noopener">CMD 模块定义规范</a></li>
+</ul>
+<p>对于依赖的模块，AMD 是提前执行，CMD 是延迟执行。</p>
+<blockquote>
+<p>AMD:提前执行（异步加载：依赖先执行）+延迟执行<br>CMD:延迟执行（运行到需加载，根据顺序执行）</p>
+</blockquote>
+<hr>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul>
+<li><a href="http://www.ruanyifeng.com/blog/2012/10/javascript_module.html" target="_blank" rel="noopener">Javascript模块化编程（一）：模块的写法–阮一峰</a></li>
+<li><a href="http://www.ruanyifeng.com/blog/2012/10/asynchronous_module_definition.html" target="_blank" rel="noopener">Javascript模块化编程（二）：AMD规范</a></li>
+<li><a href="http://www.ruanyifeng.com/blog/2012/11/require_js.html" target="_blank" rel="noopener">Javascript模块化编程（三）：require.js的用法</a></li>
+<li><a href="http://segmentfault.com/a/1190000000733959" target="_blank" rel="noopener">详解 JavaScript 模块开发</a></li>
+<li><a href="http://www.cnblogs.com/jinguangguo/archive/2013/04/06/3002515.html?utm_source=tuicool" target="_blank" rel="noopener">浅谈模块化的JavaScript</a></li>
+<li><a href="http://div.io/topic/430" target="_blank" rel="noopener">再谈 SeaJS 与 RequireJS 的差异</a></li>
+<li>玩转AMD系列 by erik@EFE<ul>
+<li><a href="http://efe.baidu.com/blog/dissecting-amd-preface/" target="_blank" rel="noopener">玩转AMD - 写在前面</a></li>
+<li><a href="http://efe.baidu.com/blog/dissecting-amd-what/" target="_blank" rel="noopener">玩转AMD - 设计思路</a></li>
+<li><a href="http://efe.baidu.com/blog/dissecting-amd-how/" target="_blank" rel="noopener">玩转AMD - 应用实践</a></li>
+<li><a href="http://efe.baidu.com/blog/dissecting-amd-loader/" target="_blank" rel="noopener">玩转AMD - Loader</a>   </li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="前端工程化"><a href="#前端工程化" class="headerlink" title="前端工程化"></a>前端工程化</h2><blockquote>
+<p>业界目前有非常多的前端开发工具，完成一些开发过程中可以自动化完成的工作，提高研发效率，并且可以提高多人协作时的开发过程一致性，提高整个项目的运维效率。</p>
+<p>在EFE日常工作中，我们是基于EDP，完成项目开发过程中的项目构建、包管理、调试、单测、静态检测、打包、压缩、优化、项目部署等一系列所有工作。</p>
+</blockquote>
+<p>注：</p>
+<p>如果网络不好，可以使用 <a href="http://npm.taobao.org/" target="_blank" rel="noopener">淘宝 NPM 镜像</a>。</p>
+<h3 id="参考-1"><a href="#参考-1" class="headerlink" title="参考"></a>参考</h3><ul>
+<li><a href="http://div.io/topic/439" target="_blank" rel="noopener">前端工程与模块化框架</a></li>
+<li><a href="http://mweb.baidu.com/p/baidusearch-front-end-road.html" target="_blank" rel="noopener">手机百度前端工程化之路</a></li>
+<li><a href="http://www.infoq.com/cn/articles/yunlong-on-fis" target="_blank" rel="noopener">对话百度前端工程师张云龙：F.I.S与前端工业化</a></li>
+<li><a href="https://github.com/ecomfe/edp" target="_blank" rel="noopener">EDP</a></li>
+<li><a href="http://www.w3cplus.com/tools/grunt-tutorial-start-grunt.html" target="_blank" rel="noopener">Grunt教程——初涉Grunt</a></li>
+<li><a href="http://www.open-open.com/lib/view/open1417068223049.html" target="_blank" rel="noopener">gulp入门指南</a></li>
+<li><a href="http://www.w3ctech.com/topic/134" target="_blank" rel="noopener">Gulp开发教程（翻译）</a></li>
+<li><a href="http://www.gulpjs.com.cn/" target="_blank" rel="noopener">Gulp 中文网</a></li>
+<li><a href="https://github.com/ericdum/mujiang.info/issues/6" target="_blank" rel="noopener">npm的package.json中文文档</a></li>
+</ul>
+<hr>
+<h2 id="最终作品"><a href="#最终作品" class="headerlink" title="最终作品"></a>最终作品</h2><p>在任务三中，做了一个 PC 端的 ToDo 应用。任务四是将它优化，以适应移动端设备。</p>
+<h3 id="ToDo-WebApp-Version"><a href="#ToDo-WebApp-Version" class="headerlink" title="ToDo WebApp Version"></a>ToDo WebApp Version</h3><ul>
+<li><a href="https://github.com/baidu-ife/ife/tree/master/task/task0004" target="_blank" rel="noopener">任务四要求</a></li>
+<li><a href="https://github.com/Gaohaoyang/ToDo-WebApp" target="_blank" rel="noopener">源代码</a></li>
+<li><a href="http://gaohaoyang.github.io/ToDo-WebApp/" target="_blank" rel="noopener">在线 demo</a></li>
+<li><p>手机查看 ↓ 二维码 ↓</p>
+<p>  <img src="http://7q5cdt.com1.z0.glb.clouddn.com/task4-code-todoWebApp.png" alt="todoWebApp"></p>
+</li>
+<li><p><a href="http://gaohaoyang.github.io" target="_blank" rel="noopener">我的博客 HyG</a></p>
+</li>
+</ul>
+<h3 id="Details"><a href="#Details" class="headerlink" title="Details"></a>Details</h3><ul>
+<li><p><strong>数据存储</strong></p>
+<p>  以 JSON 模拟数据表的形式存储于 LocalStorage 中</p>
+<pre><code>使用数据库的思想，构建3张表。
+cateJson 分类
+childCateJson 子分类
+taskJson 任务
+
+分类表 cate
+----------------------
+id* | name | child(FK)
+----------------------
+
+子分类表 childCate
+--------------------------------
+id* | pid(FK) | name | child(FK)
+--------------------------------
+
+任务表 task
+----------------------------------------------
+id* | pid(FK) | finish | name | date | content
+----------------------------------------------
+</code></pre></li>
+<li><p><strong>使用 <code>Sass</code> 重构了 CSS 代码</strong></p>
+<p>  使用分块、继承等方式，使得代码更加清晰明了。</p>
+</li>
+<li><p><strong>响应式布局</strong></p>
+<p>  针对手机端细节做了很多调整，更符合手机上的视觉交互习惯。</p>
+</li>
+<li><p><strong>加入页面切换效果</strong></p>
+<p>  使用 <code>translate3d()</code>，纯 CSS3 切换动画效果。</p>
+</li>
+<li><p><strong>处理了 XSS 防护</strong></p>
+<p>  对可能造成破坏的字符进行转码。</p>
+</li>
+<li><p><strong>性能优化</strong></p>
+<p>  使用 CDN 处理静态资源 fontAwesome，压缩静态资源等</p>
+</li>
+<li><p><strong>模块化</strong></p>
+<p>  使用 requireJS 模块化 JavaScript 代码。重构 JavaScript 代码。优化之前写的耦合性高的绑定事件，重新绑定事件，降低耦合性。期间根据具体需求重写了事件代理的代码。</p>
+</li>
+<li><p><strong>前端工程化</strong></p>
+<p>  使用 gulp，自动编译 Sass，压缩 CSS 和 JavaScript 代码。并且配置了自动流程。</p>
+</li>
+</ul>
+<hr>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><h3 id="webkit-tap-highlight-color-属性"><a href="#webkit-tap-highlight-color-属性" class="headerlink" title="-webkit-tap-highlight-color 属性"></a><code>-webkit-tap-highlight-color</code> 属性</h3><p>感谢 <a href="https://github.com/fiona23" target="_blank" rel="noopener">fiona</a> 指出。</p>
+<p>safari移动端点击的时候会闪一下加上 <code>-webkit-tap-highlight-color: transparent;</code> 就不会闪了。</p>
+<p>参考：</p>
+<ul>
+<li><a href="http://www.css88.com/webkit/-webkit-tap-highlight-color/" target="_blank" rel="noopener"><code>-webkit-tap-highlight-color</code>  css88</a></li>
+<li><a href="http://ued.ctrip.com/webkitcss/prop/tap-highlight-color.html" target="_blank" rel="noopener"><code>-webkit-tap-highlight-color</code> 属性</a></li>
+</ul>
+<hr>
+<h3 id="textarea-标签-disabled-颜色"><a href="#textarea-标签-disabled-颜色" class="headerlink" title="textarea 标签 disabled 颜色"></a>textarea 标签 disabled 颜色</h3><ul>
+<li><p>为什么用 disabled 属性？</p>
+<p>  因为我发现仅仅使用 readonly 属性，在 IE 下是显示光标的。于是使用 disabled。</p>
+</li>
+<li><p>出现的问题</p>
+<p>  各家浏览器对于 disabled 属性有自己的样式设定，比如 IE 下是灰色的。苹果设备下也是。改变这些样式的方法也不是统一的。如果要兼容 Safari 必须加上</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">background: #fff;</span><br><span class="line">-webkit-text-fill-color: rgba(0, 0, 0, 1);</span><br><span class="line">-webkit-opacity: 1;</span><br></pre></td></tr></table></figure>
+<p>于是最终代码如下：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">textarea</span><span class="selector-pseudo">:disabled</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>:<span class="number">#000</span>;</span><br><span class="line">    <span class="attribute">background</span>: <span class="number">#fff</span>;</span><br><span class="line">    <span class="attribute">-webkit-text-fill-color</span>: <span class="built_in">rgba</span>(0, 0, 0, 1);</span><br><span class="line">    <span class="attribute">-webkit-opacity</span>: <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>参考：<a href="http://stackoverflow.com/a/4648315" target="_blank" rel="noopener">Disabled input text color 中的评论</a></li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>Donate comment here</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/upload/wechatpay.png" alt="Jason Lee WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/upload/alipay.jpg" alt="Jason Lee Alipay">
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript-HTML-CSS-Sass-移动端-XSS-AMD-requireJS-CommonJS-性能优化-WebApp/" rel="tag"># JavaScript HTML CSS Sass 移动端 XSS AMD requireJS CommonJS 性能优化 WebApp</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/06/15/JavaScript-Object-Oriented/" rel="next" title="JavaScript 面向对象">
+                <i class="fa fa-chevron-left"></i> JavaScript 面向对象
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/06/18/weinre/" rel="prev" title="Weinre --WebApp 调试工具">
+                Weinre --WebApp 调试工具 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/upload/195206.jpg" alt="Jason Lee">
+            
+              <p class="site-author-name" itemprop="name">Jason Lee</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">55</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">39</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/Jason003" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:jl5501@columbia.edu" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.zhihu.com/people/long-juan-feng-98-88" target="_blank" title="知乎">
+                      
+                        <i class="fa fa-fw fa-globe"></i>知乎</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#概念"><span class="nav-number">1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#head-标签"><span class="nav-number">2.</span> <span class="nav-text">head 标签</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#页面切换动画"><span class="nav-number">3.</span> <span class="nav-text">页面切换动画</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS-Processing"><span class="nav-number">4.</span> <span class="nav-text">CSS Processing</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装"><span class="nav-number">4.1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编译"><span class="nav-number">4.2.</span> <span class="nav-text">编译</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#补充"><span class="nav-number">4.3.</span> <span class="nav-text">补充</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安全"><span class="nav-number">5.</span> <span class="nav-text">安全</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#分类"><span class="nav-number">5.1.</span> <span class="nav-text">分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关于-XSS"><span class="nav-number">5.2.</span> <span class="nav-text">关于 XSS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#XSS-防护"><span class="nav-number">5.3.</span> <span class="nav-text">XSS 防护</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#性能优化"><span class="nav-number">6.</span> <span class="nav-text">性能优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模块化"><span class="nav-number">7.</span> <span class="nav-text">模块化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#AMD规范"><span class="nav-number">7.1.</span> <span class="nav-text">AMD规范</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CommonJS规范"><span class="nav-number">7.2.</span> <span class="nav-text">CommonJS规范</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么要用-requireJS"><span class="nav-number">7.3.</span> <span class="nav-text">为什么要用 requireJS</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#requireJS"><span class="nav-number">7.3.1.</span> <span class="nav-text">requireJS</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#AMD和CMD"><span class="nav-number">7.4.</span> <span class="nav-text">AMD和CMD</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考"><span class="nav-number">7.5.</span> <span class="nav-text">参考</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#前端工程化"><span class="nav-number">8.</span> <span class="nav-text">前端工程化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#参考-1"><span class="nav-number">8.1.</span> <span class="nav-text">参考</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#最终作品"><span class="nav-number">9.</span> <span class="nav-text">最终作品</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ToDo-WebApp-Version"><span class="nav-number">9.1.</span> <span class="nav-text">ToDo WebApp Version</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Details"><span class="nav-number">9.2.</span> <span class="nav-text">Details</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他"><span class="nav-number">10.</span> <span class="nav-text">其他</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#webkit-tap-highlight-color-属性"><span class="nav-number">10.1.</span> <span class="nav-text">-webkit-tap-highlight-color 属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#textarea-标签-disabled-颜色"><span class="nav-number">10.2.</span> <span class="nav-text">textarea 标签 disabled 颜色</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jason Lee</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://Jason.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://yoursite.com/2015/06/17/web-app/';
+          this.page.identifier = '2015/06/17/web-app/';
+          this.page.title = 'Web App 相关技术';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://Jason.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

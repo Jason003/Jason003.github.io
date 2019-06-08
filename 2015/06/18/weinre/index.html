@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+
+
+
+
+<html class="theme-next mist" lang>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Weinre WebApp 调试工具 JavaScript HTML CSS,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="content{:toc}  什么是 weinre？weinre官网 上有两句有意思的介绍：  weinre is WEb INspector REmote. Pronounced like the word “winery”. Or maybe like the word “weiner”. Who knows, really. weinre is a debugger for web pag">
+<meta name="keywords" content="Weinre WebApp 调试工具 JavaScript HTML CSS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Weinre --WebApp 调试工具">
+<meta property="og:url" content="http://yoursite.com/2015/06/18/weinre/index.html">
+<meta property="og:site_name" content="JL">
+<meta property="og:description" content="content{:toc}  什么是 weinre？weinre官网 上有两句有意思的介绍：  weinre is WEb INspector REmote. Pronounced like the word “winery”. Or maybe like the word “weiner”. Who knows, really. weinre is a debugger for web pag">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://muellerware.org/papers/weinre/images/http-flow.png">
+<meta property="og:image" content="http://7q5cdt.com1.z0.glb.clouddn.com/blog-weinre.png">
+<meta property="og:image" content="http://7q5cdt.com1.z0.glb.clouddn.com/blog-target-none.png">
+<meta property="og:image" content="http://7q5cdt.com1.z0.glb.clouddn.com/blog-target.png">
+<meta property="og:image" content="http://7q5cdt.com1.z0.glb.clouddn.com/blog-1954958440_meitu_2.jpg">
+<meta property="og:updated_time" content="2017-12-13T15:25:35.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Weinre --WebApp 调试工具">
+<meta name="twitter:description" content="content{:toc}  什么是 weinre？weinre官网 上有两句有意思的介绍：  weinre is WEb INspector REmote. Pronounced like the word “winery”. Or maybe like the word “weiner”. Who knows, really. weinre is a debugger for web pag">
+<meta name="twitter:image" content="http://muellerware.org/papers/weinre/images/http-flow.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2015/06/18/weinre/">
+
+
+
+
+
+  <title>Weinre --WebApp 调试工具 | JL</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">JL</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Jason Lee's Blog</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/06/18/weinre/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jason Lee">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/upload/195206.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JL">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Weinre --WebApp 调试工具</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-06-18T00:06:05+08:00">
+                2015-06-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2015/06/18/weinre/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/06/18/weinre/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <ul>
+<li>content<br>{:toc}</li>
+</ul>
+<h2 id="什么是-weinre？"><a href="#什么是-weinre？" class="headerlink" title="什么是 weinre？"></a>什么是 weinre？</h2><p><a href="http://people.apache.org/~pmuellr/weinre/docs/latest/Home.html" target="_blank" rel="noopener">weinre官网</a> 上有两句有意思的介绍：</p>
+<blockquote>
+<p><strong>weinre</strong> is <strong>WE</strong>b <strong>IN</strong>spector <strong>RE</strong>mote. Pronounced like the word “winery”. Or maybe like the word “weiner”. Who knows, really.</p>
+<p><strong>weinre</strong> is a debugger for web pages, like FireBug (for FireFox) and Web Inspector (for WebKit-based browsers), except it’s designed to work remotely, and in particular, to allow you debug web pages on a mobile device such as a phone.</p>
+</blockquote>
+<p>上面说 weinre 是一个远程 web 调试器。说到了它的发音，还挺幽默，哈哈。</p>
+<p>远程 web 调试器。先说调试器，就像火狐中的 FireBug，Chrome 中的调试器一样。就是在浏览器中按下 <code>F12</code> 出现的那个工具。但是在手机上，你没办法按 <code>F12</code>，而这个 weinre 就是在手机上的 <code>F12</code>，与传统的不同的是，它是在手机上浏览你的 web 页面，在 PC 上查看调试工具，非常方便，这就是所谓的远程。</p>
+<hr>
+<h2 id="为什么用-weinre？"><a href="#为什么用-weinre？" class="headerlink" title="为什么用 weinre？"></a>为什么用 weinre？</h2><p>现代浏览器中调试工具都非常强大了，可以直接模拟手机设备，为什么还要用 weinre 这么麻烦的东西呢？</p>
+<p>我觉得 PC 端的浏览器虽说可以模拟，但模拟毕竟还是模拟，还只是鼠标长按滑来滑去。在开发过程中，使用手机或平板直接来感受是多么的酷，指尖在移动设备的屏幕上摩擦摩擦！给人的直观感受绝对秒杀浏览器的模拟。</p>
+<hr>
+<h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p>使用一种工具之前，了解它的原理和结构是很有帮助的。weinre 作为一种远程调试工具，在结构上分为三层：</p>
+<ul>
+<li>目标页面（target）：被调试的页面，页面已嵌入 weinre 的远程 js，下文会介绍；</li>
+<li>Debug客户端（client）：本地的 Web Inspector 调试客户端；</li>
+<li>Debug服务端（agent）：一个 HTTP Server，为目标页面与 Debug 客户端建立通信。</li>
+</ul>
+<p>三层结构如下图所示：</p>
+<p><img src="http://muellerware.org/papers/weinre/images/http-flow.png" alt="http-flow"></p>
+<p>weinre 的 debug 客户端是基于 Web Inspector 开发，而 Web Inspector 只与以 WebKit 为核心的浏览器兼容，所以 Weinre 的客户端只能用 Chrome 或者 Safari 打开。</p>
+<p><a href="http://people.apache.org/~pmuellr/weinre/docs/latest/Home.html" target="_blank" rel="noopener">官网</a>上也有相应的平台支持说明：</p>
+<ul>
+<li><p>Platforms supported - debug server 服务端</p>
+<p>  任何支持 node.js 的平台。</p>
+</li>
+<li><p>Platforms supported - debug client 客户端（跑 debugger 界面的浏览器）</p>
+<ul>
+<li>Google Chrome</li>
+<li>Apple Safari</li>
+<li>Other recent-ish WebKit-based browsers 其他基于 webkit 内核的现代浏览器</li>
+</ul>
+</li>
+<li><p>Platforms supported - debug target 目标页面（在移动设备中调试运行的目标页面）</p>
+<ul>
+<li>Android Browser application</li>
+<li>iOS Mobile Safari application</li>
+<li>PhoneGap/Cordova</li>
+<li>other</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><ol>
+<li>weinre 是 nodeJS 的一个应用，首先要 <a href="https://nodejs.org/" target="_blank" rel="noopener">安装 nodeJS 运行环境</a></li>
+<li><p>使用 npm 命令，安装 weinre</p>
+<pre><code>npm -g install weinre
+</code></pre><p> 安装成功后会有类似的信息：</p>
+<pre><code>C:\Users\haoyang\AppData\Roaming\npm\weinre -&gt; C:\Users\haoyang\AppData\Roaming\npm\node_modules\weinre\weinre
+weinre@2.0.0-pre-I0Z7U9OV C:\Users\haoyang\AppData\Roaming\npm\node_modules\weinre
+├── underscore@1.7.0
+├── nopt@3.0.2 (abbrev@1.0.7)
+└── express@2.5.11 (mime@1.2.4, qs@0.4.2, mkdirp@0.3.0, connect@1.9.2)
+</code></pre></li>
+</ol>
+<hr>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><ol>
+<li><p>启动服务</p>
+<pre><code>weinre --boundHost -all- --httpPort 8081
+</code></pre><ul>
+<li><p>–boundHost [hostname | ip address | -all-]</p>
+<p>  The ip address to bind the server to.</p>
+</li>
+<li><p>–httpPort [portNumber]</p>
+<p>  The port to run the HTTP server on.</p>
+<p>更多配置项参考 <a href="http://people.apache.org/~pmuellr/weinre/docs/latest/Running.html" target="_blank" rel="noopener">官网的说明</a>。</p>
+</li>
+</ul>
+</li>
+<li><p>启动成功后看到如下界面：</p>
+<p> <img src="http://7q5cdt.com1.z0.glb.clouddn.com/blog-weinre.png" alt="weinre"></p>
+</li>
+<li><p>给目标页面添加一行脚本</p>
+<p> 可以看到 2.中的 Target Script 说要添加一行脚本到要调试的 web 页面中。</p>
+<p> Target Script</p>
+<p> You can use this script to inject the weinre target code into your web page.</p>
+<p> <a href="http://localhost:8081/target/target-script-min.js#anonymous" target="_blank" rel="noopener">http://localhost:8081/target/target-script-min.js#anonymous</a></p>
+<p> Example:</p>
+<pre><code>&lt;script src=&quot;http://localhost:8081/target/target-script-min.js#anonymous&quot;&gt;&lt;/script&gt;
+</code></pre><p> 这里要说明一下，要把上面的 localhost 换为本机的 ip 地址。</p>
+<p> 我们可以在命令行中 使用 <code>ipconfig</code> 得到 ip 地址，如下（当然你的可能和我的不一样）：</p>
+<pre><code>IPv4 地址 . . . . . . . . . . . . : 192.168.1.107
+</code></pre><p> 即插入如下代码：</p>
+<pre><code>&lt;script src=&quot;http://192.168.1.107:8081/target/target-script-min.js#anonymous&quot;&gt;&lt;/script&gt;
+</code></pre></li>
+<li><p>进入调试页面</p>
+<p> PC 端访问这个地址：</p>
+<p> debug client user interface:    <a href="http://localhost:8081/client/#anonymous" target="_blank" rel="noopener">http://localhost:8081/client/#anonymous</a></p>
+<p> 此时 target 为 none，如下图：</p>
+<p> <img src="http://7q5cdt.com1.z0.glb.clouddn.com/blog-target-none.png" alt="target-none"></p>
+<p> 现在我们要用手机访问同一个局域网下的这个目标页面。我们可以把要调试的页面放到这个路径下：</p>
+<pre><code>C:\Users\haoyang\AppData\Roaming\npm\node_modules\weinre\web
+</code></pre><p> 通过 <a href="http://192.168.1.107:8081/FILE_NAME" target="_blank" rel="noopener">http://192.168.1.107:8081/FILE_NAME</a> 在手机上访问，就可以看到了。当然前提是同一个局域网。</p>
+<p> 但是这样可能不太灵活，每次都要把目标页面放到指定的目录下。所以我们可以另外开一个服务器。</p>
+<p> 我使用了基于 node.js 的 http-server 工具。将要调试的页面发布。这样我就能通过 ip 地址加端口号在手机上访问到了。</p>
+<p> 我在手机上访问 <a href="http://192.168.1.107:8080" target="_blank" rel="noopener">http://192.168.1.107:8080</a> 打开要调试的页面，此时 debug client user interface 中自动检测到 target。就可以进行调试了！</p>
+<p> 如下图：</p>
+<p> <img src="http://7q5cdt.com1.z0.glb.clouddn.com/blog-target.png" alt="target"></p>
+<p> <img src="http://7q5cdt.com1.z0.glb.clouddn.com/blog-1954958440_meitu_2.jpg" alt="phone"></p>
+</li>
+</ol>
+<hr>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><a href="http://blog.csdn.net/dojotoolkit/article/details/6280924" target="_blank" rel="noopener">Web移动应用调试工具——Weinre</a></li>
+<li><a href="http://muellerware.org/papers/weinre/manual.html" target="_blank" rel="noopener">weinre - WEb INspector REmote</a></li>
+<li><a href="http://blog.csdn.net/smy_yu/article/details/38922315" target="_blank" rel="noopener">webapp开发调试环境–weinre配置</a></li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>Donate comment here</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/upload/wechatpay.png" alt="Jason Lee WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/upload/alipay.jpg" alt="Jason Lee Alipay">
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Weinre-WebApp-调试工具-JavaScript-HTML-CSS/" rel="tag"># Weinre WebApp 调试工具 JavaScript HTML CSS</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/06/17/web-app/" rel="next" title="Web App 相关技术">
+                <i class="fa fa-chevron-left"></i> Web App 相关技术
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/07/09/JavaScript-Net/" rel="prev" title="JavaScript 阶段总结">
+                JavaScript 阶段总结 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/upload/195206.jpg" alt="Jason Lee">
+            
+              <p class="site-author-name" itemprop="name">Jason Lee</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">55</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">39</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/Jason003" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:jl5501@columbia.edu" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.zhihu.com/people/long-juan-feng-98-88" target="_blank" title="知乎">
+                      
+                        <i class="fa fa-fw fa-globe"></i>知乎</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是-weinre？"><span class="nav-number">1.</span> <span class="nav-text">什么是 weinre？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么用-weinre？"><span class="nav-number">2.</span> <span class="nav-text">为什么用 weinre？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#原理"><span class="nav-number">3.</span> <span class="nav-text">原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-number">4.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用"><span class="nav-number">5.</span> <span class="nav-text">使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">6.</span> <span class="nav-text">参考</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jason Lee</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://Jason.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://yoursite.com/2015/06/18/weinre/';
+          this.page.identifier = '2015/06/18/weinre/';
+          this.page.title = 'Weinre --WebApp 调试工具';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://Jason.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
