@@ -66,7 +66,7 @@
 
 
 
-  <meta name="keywords" content="algorithms,">
+  <meta name="keywords" content="algorithms LeetCode,">
 
 
 
@@ -77,18 +77,18 @@
 
 
 
-<meta name="description" content="Description123Implement strStr().Return the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack. SolutionThe brute force is very easy to come up with, and the">
-<meta name="keywords" content="algorithms">
+<meta name="description" content="Description12345678You are given the number of rows n_rows and number of columns n_cols of a 2D binary matrix where all values are initially 0. Write a function flip which chooses a 0 value uniformly">
+<meta name="keywords" content="algorithms LeetCode">
 <meta property="og:type" content="article">
-<meta property="og:title" content="kmp">
-<meta property="og:url" content="http://yoursite.com/2019/06/08/kmp/index.html">
+<meta property="og:title" content="LC 519. Random Flip Matrix">
+<meta property="og:url" content="http://yoursite.com/2019/06/27/Matrix/index.html">
 <meta property="og:site_name" content="JL">
-<meta property="og:description" content="Description123Implement strStr().Return the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack. SolutionThe brute force is very easy to come up with, and the">
+<meta property="og:description" content="Description12345678You are given the number of rows n_rows and number of columns n_cols of a 2D binary matrix where all values are initially 0. Write a function flip which chooses a 0 value uniformly">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-06-08T12:13:15.389Z">
+<meta property="og:updated_time" content="2019-06-27T04:10:23.415Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="kmp">
-<meta name="twitter:description" content="Description123Implement strStr().Return the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack. SolutionThe brute force is very easy to come up with, and the">
+<meta name="twitter:title" content="LC 519. Random Flip Matrix">
+<meta name="twitter:description" content="Description12345678You are given the number of rows n_rows and number of columns n_cols of a 2D binary matrix where all values are initially 0. Write a function flip which chooses a 0 value uniformly">
 
 
 
@@ -118,13 +118,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/06/08/kmp/">
+  <link rel="canonical" href="http://yoursite.com/2019/06/27/Matrix/">
 
 
 
 
 
-  <title>kmp | JL</title>
+  <title>LC 519. Random Flip Matrix | JL</title>
   
 
 
@@ -261,7 +261,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/08/kmp/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/27/Matrix/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jason Lee">
@@ -278,7 +278,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">kmp</h1>
+          <h1 class="post-title" itemprop="name headline">LC 519. Random Flip Matrix</h1>
         
 
         <div class="post-meta">
@@ -290,8 +290,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-06-08T20:00:03+08:00">
-                2019-06-08
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-06-27T11:09:15+08:00">
+                2019-06-27
               </time>
             
 
@@ -309,8 +309,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2019/06/08/kmp/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/06/08/kmp/" itemprop="commentCount"></span>
+                <a href="/2019/06/27/Matrix/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/06/27/Matrix/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -338,11 +338,10 @@
       
 
       
-        <h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Implement strStr().</span><br><span class="line"></span><br><span class="line">Return the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack.</span><br></pre></td></tr></table></figure>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>The brute force is very easy to come up with, and the time complexity will be O(mn)  </p>
-<p>However, we can implement kmp to get O(n + m).<br><a href="https://www.youtube.com/watch?v=BXCEFAzhxGY" target="_blank" rel="noopener">https://www.youtube.com/watch?v=BXCEFAzhxGY</a></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">strStr</span><span class="params">(self, s: str, p: str)</span> -&gt; int:</span></span><br><span class="line">        <span class="keyword">if</span> p == <span class="string">''</span>: <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">        <span class="comment"># kmp</span></span><br><span class="line">        n, m = len(s), len(p)</span><br><span class="line">        <span class="comment"># prepare a prefix - suffix array for p</span></span><br><span class="line">        kmp = [<span class="number">0</span>] * m</span><br><span class="line">        i, l = <span class="number">1</span>, <span class="number">0</span></span><br><span class="line">        <span class="keyword">while</span> i &lt; m:</span><br><span class="line">            <span class="keyword">if</span> p[i] == p[l]:</span><br><span class="line">                l += <span class="number">1</span></span><br><span class="line">                kmp[i] = l</span><br><span class="line">                i += <span class="number">1</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">if</span> l &gt; <span class="number">0</span>: l = kmp[l - <span class="number">1</span>]</span><br><span class="line">                <span class="keyword">else</span>: i += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># traverse the s</span></span><br><span class="line">        i, j = <span class="number">0</span>, <span class="number">0</span></span><br><span class="line">        <span class="keyword">while</span> i &lt; n:</span><br><span class="line">            <span class="keyword">if</span> s[i] == p[j]:</span><br><span class="line">                j += <span class="number">1</span></span><br><span class="line">                i += <span class="number">1</span></span><br><span class="line">                <span class="keyword">if</span> j == m: <span class="keyword">return</span> i - j</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">if</span> j &gt; <span class="number">0</span>: j = kmp[j - <span class="number">1</span>]</span><br><span class="line">                <span class="keyword">else</span>: i += <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">kmp array is the longest prefix - suffix array of pattern string.</span><br><span class="line">For example:</span><br><span class="line">String:    &apos;abaaababcd&apos;</span><br><span class="line">kmp array: [0011121200]</span><br><span class="line">By using kmp array, once we find that s[i] != p[j], j = kmp[j - 1] instead of 0</span><br></pre></td></tr></table></figure>
+        <h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">You are given the number of rows n_rows and number of columns n_cols of a 2D binary matrix where all values are initially 0. Write a function flip which chooses a 0 value uniformly at random, changes it to 1, and then returns the position [row.id, col.id] of that value. Also, write a function reset which sets all values back to 0. Try to minimize the number of calls to system&apos;s Math.random() and optimize the time and space complexity.</span><br><span class="line"></span><br><span class="line">Note:</span><br><span class="line"></span><br><span class="line">1 &lt;= n_rows, n_cols &lt;= 10000</span><br><span class="line">0 &lt;= row.id &lt; n_rows and 0 &lt;= col.id &lt; n_cols</span><br><span class="line">flip will not be called when the matrix has no 0 values left.</span><br><span class="line">the total number of calls to flip and reset will not exceed 1000.</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Example 1:</span><br><span class="line"></span><br><span class="line">Input:</span><br><span class="line">[&quot;Solution&quot;,&quot;flip&quot;,&quot;flip&quot;,&quot;flip&quot;,&quot;flip&quot;]</span><br><span class="line">[[2,3],[],[],[],[]]</span><br><span class="line">Output: [null,[0,1],[1,2],[1,0],[1,1]]</span><br></pre></td></tr></table></figure>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">It is like a shuffle problem.</span><br><span class="line">First, any cell can be converted to a number in [0, n_rows * n_cols), so we only need to generate the random number in that range without repetition.</span><br><span class="line">Second, recall the random shuffle algo, every time, we generate a number i in [0, total) and exchange the number at index i and total - 1, then total -= 1.</span><br><span class="line">However, if we use array to implement it, it will be MLE. So we can use map, the only difference is that if i is not in that map, we should return i. (self.d.get(i, i))</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, n_rows: int, n_cols: int)</span>:</span></span><br><span class="line">        self.total = n_rows * n_cols</span><br><span class="line">        self.d = &#123;&#125;</span><br><span class="line">        self.r, self.c = n_rows, n_cols</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">flip</span><span class="params">(self)</span> -&gt; List[int]:</span></span><br><span class="line">        i = random.randint(<span class="number">0</span>, self.total - <span class="number">1</span>)</span><br><span class="line">        self.total -= <span class="number">1</span></span><br><span class="line">        res = self.d.get(i, i)</span><br><span class="line">        <span class="comment"># exchange the numbers at index self.total and m</span></span><br><span class="line">        self.d[i], self.d[self.total] = self.d.get(self.total, self.total), res</span><br><span class="line">        <span class="keyword">return</span> (res // self.c, res % self.c)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">reset</span><span class="params">(self)</span> -&gt; <span class="keyword">None</span>:</span></span><br><span class="line">        self.total = self.r * self.c</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -389,7 +388,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/algorithms/" rel="tag"># algorithms</a>
+            <a href="/tags/algorithms-LeetCode/" rel="tag"># algorithms LeetCode</a>
           
         </div>
       
@@ -402,8 +401,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/05/07/2019-05-07/" rel="next" title="LC 1039. Minimum Score Triangulation of Polygon.md">
-                <i class="fa fa-chevron-left"></i> LC 1039. Minimum Score Triangulation of Polygon.md
+              <a href="/2019/06/08/kmp/" rel="next" title="kmp">
+                <i class="fa fa-chevron-left"></i> kmp
               </a>
             
           </div>
@@ -411,10 +410,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/06/27/Matrix/" rel="prev" title="LC 519. Random Flip Matrix">
-                LC 519. Random Flip Matrix <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -750,9 +745,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://yoursite.com/2019/06/08/kmp/';
-          this.page.identifier = '2019/06/08/kmp/';
-          this.page.title = 'kmp';
+          this.page.url = 'http://yoursite.com/2019/06/27/Matrix/';
+          this.page.identifier = '2019/06/27/Matrix/';
+          this.page.title = 'LC 519. Random Flip Matrix';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://Jason.disqus.com/embed.js';
